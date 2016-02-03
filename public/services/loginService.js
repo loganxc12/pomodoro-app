@@ -5,13 +5,23 @@ app.service('loginService', function($http, $state) {
             .then(function(result) {
                 console.log(result);
                 if (result.status == 200) {
-                $state.go('dash');
-            }
+                    return $http.post('/login/', user)
+                        .then(function(result) {
+                            console.log(result);
+                            if (result.status == 200) {
+                            $state.go('dash');
+                          }
+                            return result;
+                          }, function(err) {
+                                console.log(err);
+                    })
+                }
                 return result;
             }, function(err) {
                 console.log(err);
         })
     }
+    
     
 //    this.identifyUser = function() {
 //        return $http.get('/login'/).then()
@@ -27,6 +37,7 @@ app.service('loginService', function($http, $state) {
                 return result;
             }, function(err) {
                 console.log(err);
+                return err;
         })  
     }
     

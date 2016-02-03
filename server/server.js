@@ -40,7 +40,10 @@ mongoose.connection.once('open', function() {
  })
 
 //ENDPOINTS
-app.post('/login', passport.authenticate('local-signup'));
+app.post('/login', passport.authenticate('local-signup', {
+    successRedirect : '/',
+    failureRedirect : '/signup'
+}));
 app.post('/poms', pomController.create);
 app.get('/poms', pomController.read);
 app.post('/register', userController.create);
