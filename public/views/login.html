@@ -8,13 +8,13 @@
             <div class="sign-up-form">
                 <h2>Welcome Back</h2>
                 <form>
-                    <input type="text" placeholder="EMAIL" ng-model="userEmail"/>
-                    <input type="text" placeholder="PASSWORD"/>
+                    <input type="email" placeholder="EMAIL" ng-model="user.email"/>
+                    <input type="password" placeholder="PASSWORD" ng-model="user.password"/>
                 </form>
             </div>
         </div>
         <div class="sign-up-btn">
-            <a ng-click="getUserId()" class="hvr-sweep-to-bottom" href="">Log In</a>
+            <a ng-click="login()" class="hvr-sweep-to-bottom" href="">Log In</a>
         </div>
         <div class="sign-up-btn-text">
             <p><a href=''>Forgot your password?</a></p>

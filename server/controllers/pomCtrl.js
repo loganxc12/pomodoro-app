@@ -3,6 +3,7 @@ var Poms = require('./../models/pomodoroModel');
 module.exports = {
     
     create: function (req, res) {
+        req.body.user = req.user._id;
         Poms.create(req.body, function(err, result) {
             if (err) {
                 res.json(err);
@@ -13,7 +14,7 @@ module.exports = {
     },
     
     read: function (req, res) {
-        Poms.find({}, function(err, result) {
+        Poms.find({user:req.user._id}, function(err, result) {
             if (err) {
                 res.json(err);
             } else {

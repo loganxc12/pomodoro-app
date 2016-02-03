@@ -236,7 +236,7 @@ html, body {
 
 .profile-pic {
     z-index: 100;
-    background-image: url("http://oi36.tinypic.com/14biahd.jpg");
+    background-image: url("../Images/hippo.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;

@@ -8,14 +8,14 @@
             <div class="sign-up-form">
                 <h2>Create an account</h2>
                 <form>
-                    <input type="text" placeholder="EMAIL" ng-model="userEmail"/>
-                    <input type="text" placeholder="PASSWORD"/>
-                    <input type="text" placeholder="REPEAT PASSWORD"/>
+                    <input type="email" placeholder="EMAIL" ng-model="user.email"/>
+                    <input type="password" placeholder="PASSWORD" ng-model="user.password"/>
+                    <input type="password" placeholder="REPEAT PASSWORD" ng-model="passwordCheck"/>
                 </form>
             </div>
         </div>
         <div class="sign-up-btn">
-            <a ng-click="getUserId()" class="hvr-sweep-to-bottom" href="">Register</a>
+            <a ng-click="createUser()" class="hvr-sweep-to-bottom" href="">Register</a>
         </div>
         <div class="sign-up-btn-text">
             <p><a href=''>Already have an account?</a></p>

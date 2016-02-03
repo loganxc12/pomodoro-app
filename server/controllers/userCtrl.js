@@ -1,9 +1,11 @@
-var Users = require('./../models/userModel');
+var User = require('./../models/userModel');
 
 module.exports = {
     
     create: function (req, res) {
-        Users.create(req.body, function(err, result) {
+        var newUser = new User(req.body);
+        newUser.password = newUser.generateHash(newUser.password);
+        newUser.save(function(err, result) {
             if (err) {
                 res.json(err);
             } else {
@@ -13,7 +15,7 @@ module.exports = {
     },
     
     read: function (req, res) {
-        Users.findOne({'email': req.params.email}, function(err, result) {
+        User.findOne({'email': req.params.email}, function(err, result) {
             if (err) {
                 res.json(err);
             } else {
