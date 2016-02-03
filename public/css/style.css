@@ -52,7 +52,7 @@ html, body {
 .hero {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(44, 48, 60, 0.85), rgba(44, 48, 60, 0.85)), url("Images/hero.jpg");
+    background-image: linear-gradient(rgba(44, 48, 60, 0.85), rgba(44, 48, 60, 0.85)), url("../Images/hero.jpg");
 /*    background-color: #29AF91;*/
     background-size: cover;
     background-position: center;
@@ -116,7 +116,13 @@ html, body {
 
 .sign-up-box {
     width: 100%;
-    height: 375px;
+    height: 365px;
+    display: flex;
+}
+
+.log-in-box {
+    width: 100%;
+    height: 295px;
     display: flex;
 }
 
@@ -199,6 +205,100 @@ html, body {
 
 /*** DASHBOARD PAGE ***/
 
+.dash-container {
+    display: flex;
+}
+
+.nav-sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #EBEAE4;
+    position: relative;
+    transition: all linear 0.5s;
+
+}
+
+.sidebar-logo {
+    background-color: #29AF91;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    top: 0;
+}
+
+.sidebar-logo h2 {
+    margin: auto 0;
+    margin-left: 20px;
+}
+
+.profile-pic {
+    z-index: 100;
+    background-image: url("http://oi36.tinypic.com/14biahd.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 190px;
+    position: absolute;
+    top: 50px;
+}
+
+.stats-box {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    top: 410px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+    border-bottom: 2px solid gainsboro;
+}
+
+.stats-button {
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    color: #71767c;
+    font-size: 400;
+}
+
+.stats-button i {
+    font-size: 3em;
+    color: #29AF91;
+}
+
+.today-box {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    top: 240px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 15px;
+    border-bottom: 2px solid gainsboro;
+}
+
+.today-button {
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    color: #71767c;
+    font-size: 400;
+}
+
+.today-button h4 {
+    margin-bottom: -30px;
+}
+
+.today-button h1 {
+    color: #29AF91;
+    font-size: 3.5em;
+}
+
 .timer-background {
     background-color: #2c303c;
     width: 100%;
@@ -234,6 +334,63 @@ html, body {
 
 .timer i {
     color: #29AF91;
+    cursor: pointer;
+}
+
+.settings {
+    z-index: 150;
+    position: absolute;
+    right: 50px;
+    bottom: 35px;
+    color: white;
+    font-size: 2.5em;
+}
+
+.settings i:hover {
+    color: #29AF91;
+    cursor: pointer;
+}
+
+.setting-btns {
+    width: 70px;
+    height: 292px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 32px;
+    bottom: 35px;
+}
+
+.btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+#green-btn {
+    background-color: springgreen;
+}
+
+#blue-btn {
+    background-color: dodgerblue;
+}
+
+#red-btn {
+    background-color: orangered;
+}
+
+#purple-btn {
+    background-color: rebeccapurple;
+}
+
+#orange-btn {
+    background-color: darkorange;
 }
 
 /***STATS PAGE***/
