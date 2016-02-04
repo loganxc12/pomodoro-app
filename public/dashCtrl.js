@@ -67,12 +67,33 @@ app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
     }
     
     //Get Pom Data
-    $scope.myPoms;
     $scope.getPoms = function() {
-        pomodoroService.getPoms().then(function(result) {
-            console.log(result);
-            $scope.myPoms = result.data;
+        pomodoroService.getPoms()
+            .then(function(result) {
+                console.log(result.data);
+                var milInDay = 1000 * 60 * 60 * 24;
+                var currentDate = new Date().getTime();
+                var midnight = new Date().setHours(0, 0, 0, 0);
+                var weekAgo = midnight - milInDay * 7;
+                var monthAgo = midnight - milInDay * 30;
+                $scope.today = [];
+                $scope.week = [];
+                $scope.month = [];
+            for (var i = 0; i < result.data.length; i++) {
+                if (Date.parse(result.data[i].timeCompleted) > midnight) {
+                    $scope.today.push(result.data[i]);
+                } 
+                if (Date.parse(result.data[i].timeCompleted) > weekAgo) {
+                    $scope.week.push(result.data[i]);
+                }
+                if (Date.parse(result.data[i].timeCompleted) > monthAgo) {
+                    $scope.month.push(result.data[i]);
+                }
+                
+            }
         })
     }
     
 }]);
+
+

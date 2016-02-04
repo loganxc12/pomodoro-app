@@ -1,6 +1,7 @@
 //EXTERNAL DEPENDENCIES
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -18,6 +19,9 @@ var app = express();
 require('./config/passport')(passport);
 
 //MIDDLEWARE
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(cookieParser());
 app.use(session({
     secret: config.sessionSecret,
     resave: true,
@@ -25,8 +29,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 //STATICALLY SERVE PUBLIC FOLDER
 app.use(express.static(__dirname + '/../public'));

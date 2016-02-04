@@ -4,20 +4,30 @@
             <h2><em>POMIFY</em></h2>
         </div>
         <div class="profile-pic"></div>
-        <div ng-init="getPoms()" class="today-box">
-            <div class="today-button">
-                <h4>Today</h4>
-                <h1>{{myPoms.length}}</h1>
+        <div class="sidebar-menu-wrapper">
+            <div ng-init="getPoms()" class="today-box">
+                <div class="today-button">
+                    <h4>Today</h4>
+                    <h1>{{today.length}}</h1>
+                </div>
             </div>
-        </div>
-        <a href="#/stats">
-        <div class="stats-box">
-            <div class="stats-button">
-                <i class="fa fa-bar-chart"></i>
-                <h4>View Stats</h4>
+            <a href="#/stats">
+            <div class="stats-box">
+                <div class="stats-button">
+                    <i class="fa fa-bar-chart"></i>
+                    <h4>View Stats</h4>
+                </div>
             </div>
+            </a>
+            <a href="#/chat">
+            <div class="chat-box">
+                <div class="chat-button">
+                    <i class="fa fa-comment"></i>
+                    <h4>Group Chat</h4>
+                </div>
+            </div>
+            </a>
         </div>
-        </a>
     </div>
     <div class="timer-background">
         <div class="nav">

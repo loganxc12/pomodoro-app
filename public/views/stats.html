@@ -1,28 +1,50 @@
 <div class="container">
         <div class="nav">
             <div class="hamburger">
-                <i class="fa fa-bars"></i>
+                <i ng-click="toggleSidebar()" class="fa fa-bars"></i>
             </div>
             <div class="nav-links">
                 <p><a class="hvr-underline-from-left" href="">Sign Out</a> </p>
             </div>
         </div>
+<!--
+        <div ng-show="sidebar" class="nav-sidebar">
+            <div class="sidebar-logo">
+                <h2><em>POMIFY</em></h2>
+            </div>
+            <div class="profile-pic"></div>
+            <div ng-init="getPoms()" class="today-box">
+                <div class="today-button">
+                    <h4>Today</h4>
+                    <h1>{{today.length}}</h1>
+                </div>
+            </div>
+            <a href="#/stats">
+            <div class="stats-box">
+                <div class="stats-button">
+                    <i class="fa fa-bar-chart"></i>
+                    <h4>View Stats</h4>
+                </div>
+            </div>
+            </a>
+        </div>
+-->
         <div class="stats-banner">
             <div ng-init="getPoms()" class="todays-stats">
                 <div class="num">
-                    <h1>{{myPoms.length}}</h1>
+                    <h1>{{today.length}}</h1>
                     <h4>TODAY</h4>
                 </div>
             </div>
             <div class="weekly-stats">
                 <div class="num">
-                    <h1>23</h1>
+                    <h1>{{week.length}}</h1>
                     <h4>THIS <span>WEEK</span></h4>
                 </div>
             </div>
             <div class="monthly-stats">
                 <div class="num">
-                    <h1>117</h1>
+                    <h1>{{month.length}}</h1>
                     <h4>THIS <span>MONTH</span></h4>
                 </div>
             </div>
