@@ -32,26 +32,37 @@
         <div class="stats-banner">
             <div ng-init="getPoms()" class="todays-stats">
                 <div class="num">
-                    <h1>{{today.length}}</h1>
+                    <h1>{{bannerToday.length}}</h1>
                     <h4>TODAY</h4>
                 </div>
             </div>
             <div class="weekly-stats">
                 <div class="num">
-                    <h1>{{week.length}}</h1>
+                    <h1>{{bannerWeek.length}}</h1>
                     <h4>THIS <span>WEEK</span></h4>
                 </div>
             </div>
             <div class="monthly-stats">
                 <div class="num">
-                    <h1>{{month.length}}</h1>
+                    <h1>{{bannerMonth.length}}</h1>
                     <h4>THIS <span>MONTH</span></h4>
                 </div>
             </div>
         </div>
-        <div class="graph">
-            <img src="Images/graph.png"/>
+        <div ng-init="getBarPoms()" class="chart">
+            <div class='ten-day-header'>
+                <h3>Last 10 Days</h3>
+<!--                <p>(Average: 7 Pomodoros)</p>-->
+            </div>
+            <canvas ng-show="lineGraph" id="myChart" width="800" height="400"></canvas>
+<!--            <canvas ng-show="barGraph" id="barChart" width="800" height="400"></canvas>-->
+<!--
+            <div class="chart-btns">
+                <a ng-click="toggleGraph()" href=''>Switch To Bar Graph View</a>
+            </div>
+-->
         </div>
-        <div class="follower-stats">
+        <div class="footer">
+            <p>&copy; Pomify 2016 | All Rights Reserved</p>
         </div>
 </div>

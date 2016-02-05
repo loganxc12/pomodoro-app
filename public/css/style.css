@@ -12,7 +12,7 @@ html, body {
 .nav {
     width: 100%;
     height: 50px;
-    background-color: #29AF91; 
+    background-color: #3787BF; 
     position: relative;
     display: flex;
 }
@@ -137,7 +137,7 @@ html, body {
 
 .sign-up-form h2 {
     font-family: 'Montserrat', sans-serif;
-    color: #2c303c;
+    color: #2F363E;
     text-transform: uppercase;
     font-size: 2em;
     letter-spacing: 0.07em;
@@ -165,9 +165,8 @@ html, body {
 
 .sign-up-btn {
     width: 100%;
-    margin: 15px auto;
+    margin: 22px auto;
     text-align: center;
-    border-radius: 5%;
     
 }
 
@@ -179,13 +178,13 @@ html, body {
     font-size: 18px;
     letter-spacing: 0.05em;
     padding: 18px 105px;
-    background-color: #366AB2;
+    background-color: #37B650;
     color: white;
 }
 
 .sign-up-btn-text {
     width: 100%;
-    margin: 35px auto;
+    margin: 45px auto;
     text-align: center;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -199,7 +198,7 @@ html, body {
 }
 
 .sign-up-btn-text a:hover {
-    color: #29AF91;
+    color: #2870A6;
     text-decoration: none;
 }
 
@@ -212,14 +211,14 @@ html, body {
 .nav-sidebar {
     width: 200px;
     height: 100vh;
-    background-color: #EBEAE4;
+    background-color: #E0E4EF;
     position: relative;
     transition: all linear 0.5s;
 
 }
 
 .sidebar-logo {
-    background-color: #29AF91;
+    background-color: #2870A6;
     color: white;
     font-family: 'Montserrat', sans-serif;
     height: 50px;
@@ -261,14 +260,15 @@ html, body {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 0;
-    border-bottom: 2px solid gainsboro;
+    border-bottom: 2px solid #d1d1d1;
 }
 
 .today-button {
     margin: auto;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    color: #71767c;
+    letter-spacing: 0.05em;
+    color: #526383;
     font-size: 400;
 }
 
@@ -277,7 +277,8 @@ html, body {
 }
 
 .today-button h1 {
-    color: #29AF91;
+    font-family: 'Open Sans', sans-serif;
+    color: #2870A6;
     font-size: 3.5em;
 }
 
@@ -290,20 +291,21 @@ html, body {
     flex-direction: column;
     text-align: center;
     margin-top: 0;
-    border-bottom: 2px solid gainsboro;
+    border-bottom: 2px solid #d1d1d1;
 }
 
 .stats-button {
     margin: auto;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    color: #71767c;
+    letter-spacing: 0.05em;
+    color: #526383;
     font-size: 400;
 }
 
 .stats-button i {
     font-size: 3em;
-    color: #29AF91;
+    color: #2870A6;
 }
 
 .chat-box {
@@ -323,17 +325,18 @@ html, body {
     margin: auto;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    color: #71767c;
+    letter-spacing: 0.05em;
+    color: #526383;
     font-size: 400;
 }
 
 .chat-button i {
     font-size: 3em;
-    color: #29AF91;
+    color: #2870A6;
 }
 
 .timer-background {
-    background-color: #2c303c;
+    background-color: #2F363E;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -366,7 +369,7 @@ html, body {
 }
 
 .timer i {
-    color: #29AF91;
+    color: #37B650;
     cursor: pointer;
 }
 
@@ -380,13 +383,12 @@ html, body {
 }
 
 .settings i:hover {
-    color: #29AF91;
     cursor: pointer;
 }
 
 .setting-btns {
     width: 70px;
-    height: 292px;
+    height: 92px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -406,8 +408,8 @@ html, body {
     cursor: pointer;
 }
 
-#green-btn {
-    background-color: springgreen;
+#white-btn {
+    background-color: white;
 }
 
 #blue-btn {
@@ -443,24 +445,26 @@ html, body {
 }
 
 .stats-banner h1 {
-    color: #8e959d;
+    color: #475159;
     font-size: 3.5em;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     letter-spacing: 0.03em;
     margin-bottom: -20px;
 }
 
 .stats-banner h4 {
     font-family: 'Montserrat', sans-serif;
-    color: #29AF91;
+    color: #2870A6;
     font-weight: 400;
     font-size: 1.2em;
 }
 
+/*
 .stats-banner span {
     font-weight: 700;
 }
+*/
 
 .todays-stats {
     flex: 1;
@@ -501,7 +505,79 @@ html, body {
     background-color: #f4f5f7;
 }
 
+.chart {
+    background-color: #ECEFF4;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
+.ten-day-header {
+     margin: 0 auto;
+     text-align: center;
+     margin-top: 40px;
+}
 
+.ten-day-header p {
+    font-family: 'Montserrat', sans-serif;
+    color: dimgray;
+    letter-spacing: 0.05em;
+}
 
+.ten-day-header h3 {
+    margin: 0 auto;
+    margin-bottom: -10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #475159;
+    letter-spacing: 0.05em;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #3787BF;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+canvas {
+    background-color: #ECEFF4;
+    padding-left: 0;
+    padding-right: 0;
+    margin: auto;
+    display: block;
+    width: 80%;
+    height: 70%;
+}
+
+.chart-btns {
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.chart-btns a {
+    padding: 10px 18px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #3787BF;
+    margin: 0 8px;
+    border: 2px solid #1c5d8b;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+}
+
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: #2F363E;
+    display: flex;
+}
+
+.footer p {
+    margin: auto;
+    color: #68798D;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
 

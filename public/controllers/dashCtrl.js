@@ -70,29 +70,22 @@ app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
     $scope.getPoms = function() {
         pomodoroService.getPoms()
             .then(function(result) {
-                console.log(result.data);
-                var milInDay = 1000 * 60 * 60 * 24;
-                var currentDate = new Date().getTime();
-                var midnight = new Date().setHours(0, 0, 0, 0);
-                var weekAgo = midnight - milInDay * 7;
-                var monthAgo = midnight - milInDay * 30;
-                $scope.today = [];
-                $scope.week = [];
-                $scope.month = [];
-            for (var i = 0; i < result.data.length; i++) {
-                if (Date.parse(result.data[i].timeCompleted) > midnight) {
-                    $scope.today.push(result.data[i]);
-                } 
-                if (Date.parse(result.data[i].timeCompleted) > weekAgo) {
-                    $scope.week.push(result.data[i]);
-                }
-                if (Date.parse(result.data[i].timeCompleted) > monthAgo) {
-                    $scope.month.push(result.data[i]);
-                }
-                
-            }
+                console.log('RESULT -->' + result);
+                $scope.today = result.today;
+                $scope.week = result.week;
+                $scope.month = result.month;
         })
     }
+    
+    $( document ).ready(function() {
+        $('#white-btn').click(function() {
+            $('.timer-background').css('background-color', 'white');
+            $('.timer h1').css('color', '#475159');
+            $('.settings i').css('color', '#475159');
+        })
+    });
+    
+
     
 }]);
 
