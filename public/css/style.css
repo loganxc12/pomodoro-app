@@ -5,6 +5,8 @@ html, body {
 
 .container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /**HOMEPAGE**/
@@ -13,8 +15,9 @@ html, body {
     width: 100%;
     height: 50px;
     background-color: #3787BF; 
-    position: relative;
+    position: fixed;
     display: flex;
+    z-index: 1000;
 }
 
 .logo {
@@ -31,8 +34,10 @@ html, body {
 
 .nav-links {
     position: absolute;
-    height: 50px;
-    right: 25px;
+    display: flex;
+    height: 100%;
+    width: 100px;
+    right: 0;
     top: 1px;
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -42,7 +47,8 @@ html, body {
 }
 
 .nav-links p {
-    margin-bottom: 30px;
+    margin: auto 0;
+    margin-top: 14px;
 } 
 .nav-links a {
     color: white;
@@ -52,7 +58,8 @@ html, body {
 .hero {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(44, 48, 60, 0.85), rgba(44, 48, 60, 0.85)), url("../Images/hero.jpg");
+    background-image: linear-gradient(rgba(255,255,255, 0.85), rgba(255,255,255, 0.85)), url('../Images/pom2.jpg');
+/*    background-color: #fff;*/
 /*    background-color: #29AF91;*/
     background-size: cover;
     background-position: center;
@@ -62,7 +69,7 @@ html, body {
 
 .title {
     margin: auto;
-    color: white;
+    color: #2f363e;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
@@ -73,9 +80,10 @@ html, body {
 }
 
 .title h2 {
-    font-size: 2.3em;
+    font-size: 2.5em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     margin-bottom: 0;
 }
 
@@ -88,7 +96,9 @@ html, body {
 }
 
 .title span {
-    border-bottom: 3px solid white;
+    border-bottom: 5px solid #3787BF;
+    padding-bottom: -15px;
+    color: #3787BF;
 }
 
 .home-buttons {
@@ -102,14 +112,15 @@ html, body {
     text-align: center;
     color: white;
     text-decoration: none;
-    padding: 12px 16px;
-    background-color: #366AB2;
-    border-radius: 3%;
+    padding: 14px 18px;
     margin-right: 10px;
+    background-color: #37b650;
+    border: 2px solid #29863b;
 }
 
-.title a:last-child {
-    background-color: #29AF91;
+.title a:first-child {
+    background-color: #EF4B50;
+    border: 2px solid #b43337;
 }
 
 /**SIGN UP PAGE**/
@@ -118,12 +129,14 @@ html, body {
     width: 100%;
     height: 365px;
     display: flex;
+    margin-top: 30px;
 }
 
 .log-in-box {
     width: 100%;
     height: 295px;
     display: flex;
+    margin-top: 30px;
 }
 
 .sign-up-form {
@@ -184,7 +197,7 @@ html, body {
 
 .sign-up-btn-text {
     width: 100%;
-    margin: 45px auto;
+    margin: 10px auto;
     text-align: center;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -430,6 +443,9 @@ html, body {
 
 /***STATS PAGE***/
 
+.stats-container {
+    display: flex;
+}
 .stats-content {
     width: 100%;
     height: 1000px;
@@ -441,7 +457,9 @@ html, body {
     width: 80%;
     height: 200px;
     display: flex;
-    margin: 70px auto;
+    margin: 0 auto;
+    margin-top: 55px;
+    margin-bottom: 45px;
 }
 
 .stats-banner h1 {
@@ -506,9 +524,9 @@ html, body {
 }
 
 .chart {
-    background-color: #ECEFF4;
+    background-color: #fff;
     width: 100%;
-    height: 100vh;
+    height: 500px;
     display: flex;
     flex-direction: column;
 }
@@ -538,12 +556,12 @@ html, body {
 }
 
 canvas {
-    background-color: #ECEFF4;
+    background-color: #fff;
     padding-left: 0;
     padding-right: 0;
     margin: auto;
     display: block;
-    width: 80%;
+    width: 90%;
     height: 70%;
 }
 
@@ -581,3 +599,318 @@ canvas {
     letter-spacing: 0.05em;
 }
 
+/*** TEST PAGE ***/
+
+.test-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.left-sidebar {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    width:170px;
+    background: #2F363E;
+    height: 100%;
+    display: flex;
+}
+
+.sidebar-menu {
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 7px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    display: flex;
+}
+
+.sidebar-menu h3 {
+    margin: auto;
+}
+.main-content {
+    background:#fff;
+    min-height: 100vh;
+    margin-left: 0;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-sidebar {
+    right:0px;
+    top:50px;
+    width:200px;
+    background: #E0E4EF;
+    height: 100%; 
+    position: fixed;
+}
+
+.following-label {
+    font-family: 'Montserrat', sans-serif;
+    color: #8b8f9a;
+    font-weight: 200;
+    margin-top: 100px;
+}
+
+.friend {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.friend img {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin: auto 0;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.friend h3 {
+    color: #434A4F;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin: auto 0;
+    margin-left: 70px;
+    margin-bottom: 3px;
+}
+
+.progress {
+    width: 100px;
+    height: 7px;
+    background-color: #37b650;
+    border-radius: 10%;
+    display: flex;
+    margin: auto;
+    margin-left: 70px;
+    margin-top: 3px;
+}
+
+.progress p {
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+}
+
+.progress2 {
+    width: 34px;
+    height: 7px;
+    background-color: #37b650;
+    border-radius: 10%;
+    display: block;
+    margin: auto;
+    margin-left: 70px;
+    margin-top: 3px;
+}
+
+.progress3 {
+    width: 70px;
+    height: 7px;
+    background-color: #37b650;
+    border-radius: 10%;
+    display: block;
+    margin: auto;
+    margin-left: 70px;
+    margin-top: 3px;
+}
+
+.nav-logo {
+    position: absolute;
+    display: flex;
+    width: 170px;
+    height: 100%;
+    background-color: #2870A6;
+    left: 0
+}
+
+.nav-logo h2 {
+    margin: auto 0;
+    margin-left: 20px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.stats-profile-pic {
+    z-index: 100;
+    background-image: url("https://wallpaperscraft.com/image/emma_watson_brunette_eyes_face_black_and_white_64219_1024x1024.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 190px;
+    position: absolute;
+    display: block;
+    top: 0;
+}
+
+.cover-image {
+    width: 100%;
+    height: 380px;
+    margin-top: 50px;
+    background-image: linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url(../Images/vista.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.profile-info {
+    width: 100%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.profile-image {
+    margin: 30px auto;
+    margin-bottom: 60px;
+    width: 120px;
+    height: 120px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    background-image: url(../Images/prof.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-description {
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: -30px;
+    width: 100%;
+    color: #fff;
+}
+
+.profile-description h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.profile-description p {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.07em;
+    line-height: 23px;
+}
+
+.profile-description a {
+    color: #42a0e2;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom: 2px solid #42a0e2;
+}
+
+.follow-bar {
+    max-width: 100%;
+    height: 72px;
+    background-color: #232d38;
+    position: relative;
+    display: flex;
+}
+
+.profile-btns {
+    width: 270px;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+}
+
+.follow-btn {
+    background-color: #37b650;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #fff;
+    border-radius: 4%;
+    padding: 7px 14px;
+    margin: auto;
+}
+
+.follow-btn:last-child {
+    background-color: #EF4B50;
+}
+
+/*
+.follow-bar-info {
+    height: 100%;
+    width: 500px;
+    background-color: red;
+    position: absolute;
+    left: 50px;
+    display: flex;
+    text-align: center;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+*/
+
+.age {
+    display: inline-block;
+    flex-direction: column;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-align: center;
+    color: #728088;
+    margin: 0 40px;
+    margin-left: 100px;
+    height: 90%;
+}
+
+.member-since {
+    display: inline-block;
+    flex-direction: column;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-align: center;
+    color: #728088;
+    margin-right: 30px;
+    height: 90%;
+}
+
+.total-poms {
+    display: inline-block;
+    flex-direction: column;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-align: center;
+    color: #728088;
+    margin-right: 20px;
+    height: 70%;
+}
+
+.follow-bar h2 {
+    margin-top: -12px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    font-weight: 400;
+}

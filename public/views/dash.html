@@ -1,41 +1,43 @@
+<!--SIDEBAR MENU -->
+        <div class="nav-sidebar">
+            <div class="sidebar-logo">
+                <h2><em>POMIFY</em></h2>
+            </div>
+            <div class="profile-pic"></div>
+            <div class="sidebar-menu-wrapper">
+                <div ng-init="getPoms()" class="today-box">
+                    <div class="today-button">
+                        <h4>Today</h4>
+                        <h1>{{today.length}}</h1>
+                    </div>
+                </div>
+                <a href="#/stats">
+                <div class="stats-box">
+                    <div class="stats-button">
+                        <i class="fa fa-bar-chart"></i>
+                        <h4>Stats</h4>
+                    </div>
+                </div>
+                </a>
+                <a href="#/chat">
+                <div class="chat-box">
+                    <div class="chat-button">
+                        <i class="fa fa-comments-o"></i>
+                        <h4>Chat</h4>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+        <!---END SIDEBAR MENU-->
 <div class="dash-container">
-    <div ng-show="sidebar" class="nav-sidebar">
-        <div class="sidebar-logo">
-            <h2><em>POMIFY</em></h2>
-        </div>
-        <div class="profile-pic"></div>
-        <div class="sidebar-menu-wrapper">
-            <div ng-init="getPoms()" class="today-box">
-                <div class="today-button">
-                    <h4>Today</h4>
-                    <h1>{{today.length}}</h1>
-                </div>
-            </div>
-            <a href="#/stats">
-            <div class="stats-box">
-                <div class="stats-button">
-                    <i class="fa fa-bar-chart"></i>
-                    <h4>Stats</h4>
-                </div>
-            </div>
-            </a>
-            <a href="#/chat">
-            <div class="chat-box">
-                <div class="chat-button">
-                    <i class="fa fa-comments-o"></i>
-                    <h4>Chat</h4>
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
     <div class="timer-background">
         <div class="nav">
             <div class="hamburger">
-                <i ng-click="toggleSidebar()" class="fa fa-bars"></i>
+                <i class="fa fa-bars"></i>
             </div>
             <div class="nav-links">
-                <p><a class="hvr-underline-from-left" href="">Sign Out</a> </p>
+                <p><a class="hvr-underline-from-left" href="/#/">Sign Out</a> </p>
             </div>
         </div>
         <div class='timer'>

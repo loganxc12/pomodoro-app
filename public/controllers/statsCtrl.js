@@ -1,6 +1,24 @@
 app.controller('statsCtrl', function($scope, pomodoroService) {
     
-        //Get Pom Data (FOR TOP NUMBER SECTION)
+    //JQUERY SIDEBAR NAV
+        
+        $('.nav-sidebar').scotchPanel({
+            containerSelector: 'body', // Make this appear on the entire screen
+            direction: 'left', // Make it toggle in from the left
+            duration: 300, // Speed in ms how fast you want it to be
+            transition: 'ease', // CSS3 transition type: linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(P1x,P1y,P2x,P2y)
+            clickSelector: '.hamburger', // Enables toggling when clicking elements of this class
+            distanceX: '200px', // Size fo the toggle
+            enableEscapeKey: true // Clicking Esc will close the panel
+        });
+    
+//    //Toggle Sidebar
+//    $scope.sidebar = false;
+//    $scope.toggleSidebar = function() {
+//        $scope.sidebar = !$scope.sidebar;
+//    }
+    
+    //Get Pom Data (FOR TOP NUMBER SECTION)
     $scope.getPoms = function() {
         pomodoroService.getPoms()
             .then(function(result) {
@@ -114,6 +132,9 @@ app.controller('statsCtrl', function($scope, pomodoroService) {
     //TOGGLE GRAPH VIEW
     $scope.barGraph = false;
     $scope.lineGraph = true;
+    
+        
+
     
     
 })

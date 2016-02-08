@@ -1,14 +1,4 @@
-<div class="container">
-        <div class="nav">
-            <div class="hamburger">
-                <i ng-click="toggleSidebar()" class="fa fa-bars"></i>
-            </div>
-            <div class="nav-links">
-                <p><a class="hvr-underline-from-left" href="">Sign Out</a> </p>
-            </div>
-        </div>
-<!--
-        <div ng-show="sidebar" class="nav-sidebar">
+<div class="nav-sidebar">
             <div class="sidebar-logo">
                 <h2><em>POMIFY</em></h2>
             </div>
@@ -27,8 +17,17 @@
                 </div>
             </div>
             </a>
+</div>
+<div class="stats-container">
+    <div class="stats-content">
+        <div class="nav">
+            <div class="hamburger">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <p><a class="hvr-underline-from-left" href="">Sign Out</a> </p>
+            </div>
         </div>
--->
         <div class="stats-banner">
             <div ng-init="getPoms()" class="todays-stats">
                 <div class="num">
@@ -65,4 +64,5 @@
         <div class="footer">
             <p>&copy; Pomify 2016 | All Rights Reserved</p>
         </div>
+    </div>
 </div>

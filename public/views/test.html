@@ -1,0 +1,199 @@
+<div class="nav-sidebar">
+            <div class="sidebar-logo">
+                <h2><em>POMIFY</em></h2>
+            </div>
+            <div class="profile-pic"></div>
+            <div ng-init="getPoms()" class="today-box">
+                <div class="today-button">
+                    <h4>Today</h4>
+                    <h1>{{today.length}}</h1>
+                </div>
+            </div>
+            <a href="#/stats">
+            <div class="stats-box">
+                <div class="stats-button">
+                    <i class="fa fa-bar-chart"></i>
+                    <h4>View Stats</h4>
+                </div>
+            </div>
+            </a>
+</div>
+
+<div class='test-wrapper'>
+    <div class="nav">
+        <div class="hamburger">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <p><a class="hvr-underline-from-left" href="">Sign Out</a> </p>
+        </div>
+    </div>
+<!--
+    <div class='left-sidebar'>
+        <div class="sidebar-menu">
+            <h3>TIMER</h3>
+        </div>
+    </div>
+-->
+    <div class='main-content'>
+        <div class="cover-image">
+            <div class="profile-info">
+                <div class="profile-image">
+                </div>
+                <div class="profile-description">
+                    <h3>Logan Marshall</h3>
+                    <p>I'm a outdoorsy developer working hard to make the <br> web more beautiful. Follow me, ya'll.</p>
+                    <p><a href=''>logangmarshall.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="follow-bar">
+<!--
+                <div class="age">
+                    <h4>AGE</h4>
+                    <h2>23</h2>
+                </div>
+                <div class="member-since">
+                    <h4>MEMBER SINCE</h4>
+                    <h2>FEB 2016</h2>
+                </div>
+                <div class="total-poms">
+                    <h4>TOTAL POMS</h4>
+                    <h2>150</h2>
+                </div>
+-->         <div class="profile-btns">
+                <a class="follow-btn" href=''><i class="fa fa-plus-circle"></i> FOLLOW</a>
+                <a class="follow-btn" href=''><i class="fa fa-envelope"></i> MESSAGE</a>
+            </div>
+        </div>
+        <div class="stats-banner">
+            <div ng-init="getPoms()" class="todays-stats">
+                <div class="num">
+                    <h1>{{bannerToday.length}}</h1>
+                    <h4>TODAY</h4>
+                </div>
+            </div>
+            <div class="weekly-stats">
+                <div class="num">
+                    <h1>{{bannerWeek.length}}</h1>
+                    <h4>THIS <span>WEEK</span></h4>
+                </div>
+            </div>
+            <div class="monthly-stats">
+                <div class="num">
+                    <h1>{{bannerMonth.length}}</h1>
+                    <h4>THIS <span>MONTH</span></h4>
+                </div>
+            </div>
+        </div>
+        <div ng-init="getBarPoms()" class="chart">
+            <div class='ten-day-header'>
+                <h3>Last 10 Days</h3>
+            </div>
+            <canvas ng-show="lineGraph" id="myChart" width="800" height="400"></canvas>
+        </div>
+    </div>
+    <div class='right-sidebar'>
+<!--
+        <div class='following-label'>
+            <h3>FOLLOWING</h3>
+        </div>
+-->
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xlf1/v/t1.0-9/1929706_10156333716235494_5052873551228195895_n.jpg?oh=944098d855af98f7959a4ea7fec423ab&oe=5728A196'>
+            <h3>Brittany Cooper</h3>
+            <div class="progress"></div>
+        </div>
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/v/t1.0-9/10418944_1061086640571034_6841868029591847688_n.jpg?oh=a95dd84a74f3b3454086b30ec5259242&oe=572C4E7C'>
+            <h3>Will Ross</h3>
+            <div class="progress2"></div>
+        </div>
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xap1/v/t1.0-9/1930630_1098827616802445_6657518460504063319_n.jpg?oh=f9e3a2c7dfd17c636c9ed227807473f7&oe=5730CC20'>
+            <h3>Andy Turner</h3>
+            <div class="progress3"></div>
+        </div>
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/t31.0-8/p960x960/1399532_10153079647018305_2872945106891226959_o.jpg'>
+            <h3>Andrew Ernest</h3>
+            <div class="progress"></div>
+        </div>
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xlf1/v/t1.0-9/1929706_10156333716235494_5052873551228195895_n.jpg?oh=944098d855af98f7959a4ea7fec423ab&oe=5728A196'>
+            <h3>Brittany Cooper</h3>
+            <div class="progress2"></div>
+        </div>
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/v/t1.0-9/10418944_1061086640571034_6841868029591847688_n.jpg?oh=a95dd84a74f3b3454086b30ec5259242&oe=572C4E7C'>
+            <h3>Will Ross</h3>
+            <div class="progress3"></div>
+        </div>
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xap1/v/t1.0-9/1930630_1098827616802445_6657518460504063319_n.jpg?oh=f9e3a2c7dfd17c636c9ed227807473f7&oe=5730CC20'>
+            <h3>Andy Turner</h3>
+            <div class="progress"></div>
+        </div>
+        <div class='friend'>
+            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/t31.0-8/p960x960/1399532_10153079647018305_2872945106891226959_o.jpg'>
+            <h3>Andrew Ernest</h3>
+            <div class="progress2"></div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="nav">
+        <div class="nav-logo">
+            <h2><em>POMIFY</em></h2>
+        </div>
+        <div class="nav-links">
+            <p><a class="hvr-underline-from-left" href="">Sign Out</a> </p>
+        </div>
+</div>
+<div class="test-wrapper">
+    <div class="left-sidebar">
+    </div>
+    <div class="main-content">
+        <div class="stats-banner">
+            <div ng-init="getPoms()" class="todays-stats">
+                <div class="num">
+                    <h1>{{bannerToday.length}}</h1>
+                    <h4>TODAY</h4>
+                </div>
+            </div>
+            <div class="weekly-stats">
+                <div class="num">
+                    <h1>{{bannerWeek.length}}</h1>
+                    <h4>THIS <span>WEEK</span></h4>
+                </div>
+            </div>
+            <div class="monthly-stats">
+                <div class="num">
+                    <h1>{{bannerMonth.length}}</h1>
+                    <h4>THIS <span>MONTH</span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-sidebar">
+    </div>
+
+</div>-->
