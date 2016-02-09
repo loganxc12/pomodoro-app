@@ -1,6 +1,17 @@
-app.controller('statsCtrl', function($scope, pomodoroService) {
+app.controller('statsCtrl', function($scope, pomodoroService, ModalService) {
     
     //JQUERY SIDEBAR NAV
+    $scope.numDays = 10;
+    $scope.toggle30 = function(){
+        $scope.numDays = 30;
+    }
+    $scope.toggle10 = function(){
+        $scope.numDays = 10;
+    }
+    
+    
+    
+    $scope.graphData = [];
         
         $('.nav-sidebar').scotchPanel({
             containerSelector: 'body', // Make this appear on the entire screen
@@ -12,11 +23,6 @@ app.controller('statsCtrl', function($scope, pomodoroService) {
             enableEscapeKey: true // Clicking Esc will close the panel
         });
     
-//    //Toggle Sidebar
-//    $scope.sidebar = false;
-//    $scope.toggleSidebar = function() {
-//        $scope.sidebar = !$scope.sidebar;
-//    }
     
     //Get Pom Data (FOR TOP NUMBER SECTION)
     $scope.getPoms = function() {
@@ -30,23 +36,28 @@ app.controller('statsCtrl', function($scope, pomodoroService) {
     }
     
     //Get Pom Data (FOR BAR GRAPH)
+    
+    
     $scope.getBarPoms = function() {
         pomodoroService.getBarPoms()
             .then(function(result) {
                 console.log('BAR RESULT -->' + result);
-                $scope.today = result.today;
-                $scope.yesterday = result.yesterday;
-                $scope.twoDaysAgo = result.twoDaysAgo;
-                $scope.threeDaysAgo = result.threeDaysAgo;
-                $scope.fourDaysAgo = result.fourDaysAgo;
-                $scope.fiveDaysAgo = result.fiveDaysAgo;
-                $scope.sixDaysAgo = result.sixDaysAgo;
-                $scope.sevenDaysAgo = result.sevenDaysAgo;
-                $scope.eightDaysAgo = result.eightDaysAgo;
-                $scope.nineDaysAgo = result.nineDaysAgo;
-            initGraph();
+            $scope.graphData = result;
+//                $scope.today = result.today;
+//                $scope.yesterday = result.yesterday;
+//                $scope.twoDaysAgo = result.twoDaysAgo;
+//                $scope.threeDaysAgo = result.threeDaysAgo;
+//                $scope.fourDaysAgo = result.fourDaysAgo;
+//                $scope.fiveDaysAgo = result.fiveDaysAgo;
+//                $scope.sixDaysAgo = result.sixDaysAgo;
+//                $scope.sevenDaysAgo = result.sevenDaysAgo;
+//                $scope.eightDaysAgo = result.eightDaysAgo;
+//                $scope.nineDaysAgo = result.nineDaysAgo;
+//            initGraph();
         })
     }
+    
+    $scope.getBarPoms();
     
     function initGraph(){ 
         
@@ -114,27 +125,45 @@ app.controller('statsCtrl', function($scope, pomodoroService) {
 
 }
     
-    var ctx = document.getElementById("myChart").getContext("2d");
-        var myNewChart = new Chart(ctx).Line(data, options, {
-            showScale: false,
-        });
-        
-//        $scope.toggleGraph = function() {
-////        $scope.barGraph = !$scope.barGraph;
-////        $scope.lineGraph = !$scope.lineGraph;
-//        ctx = document.getElementById("myChart").getContext("2d");
-//        var myBarChart = new Chart(ctx).Bar(data, options, {
+//    var ctx = document.getElementById("myChart").getContext("2d");
+//        var myNewChart = new Chart(ctx).Line(data, options, {
 //            showScale: false,
 //        });
-//    }
+        
     }
     
-    //TOGGLE GRAPH VIEW
-    $scope.barGraph = false;
-    $scope.lineGraph = true;
+    //TOGGLE DAY VIEW BUTTONS
+    $scope.thirtyView = true;
+    $scope.tenView = false;
+    $scope.toggleViewBtns = function() {
+        $scope.thirtyView = !$scope.thirtyView;
+        $scope.tenView = !$scope.tenView;
+    }
     
-        
-
+    //TOGGLE VIEW LABELS
+    $scope.tenHeader = true;
+    $scope.thirtyHeader = false;
+    $scope.toggleViewLabels = function() {
+        $scope.tenHeader = !$scope.tenHeader;
+        $scope.thirtyHeader = !$scope.thirtyHeader;
+    }
+    
+    //LAUNCH PROFILE MODAL 
+    
+    $scope.openModal = function(profileInfo) {
+        ModalService.showModal({
+          templateUrl: '../features/modal/modalView.html',
+          controller: 'modalCtrl',
+          inputs: {
+            profile: profileInfo
+          }
+        }).then(function(modal) {
+          // Function that runs when modal closes
+          modal.close.then(function(then) {
+            console.log(then);
+          });
+        });
+    }
     
     
 })

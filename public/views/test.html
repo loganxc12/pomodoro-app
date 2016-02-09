@@ -2,24 +2,32 @@
             <div class="sidebar-logo">
                 <h2><em>POMIFY</em></h2>
             </div>
-            <div class="profile-pic"></div>
+<!--            <div class="profile-pic"></div>-->
             <div ng-init="getPoms()" class="today-box">
                 <div class="today-button">
                     <h4>Today</h4>
-                    <h1>{{today.length}}</h1>
+                    <h1>{{bannerToday.length}}</h1>
                 </div>
             </div>
-            <a href="#/stats">
+            <a href="#/dash">
             <div class="stats-box">
                 <div class="stats-button">
-                    <i class="fa fa-bar-chart"></i>
-                    <h4>View Stats</h4>
+                    <i class="fa fa-clock-o"></i>
+                    <h4>Timer</h4>
+                </div>
+            </div>
+            </a>
+            <a href="#/stats">
+            <div class="chat-box">
+                <div class="stats-button">
+                    <i class="fa fa-comments-o"></i>
+                    <h4>Group Chat</h4>
                 </div>
             </div>
             </a>
 </div>
 
-<div class='test-wrapper'>
+<div class="test-wrapper remodal-bg">
     <div class="nav">
         <div class="hamburger">
             <i class="fa fa-bars"></i>
@@ -37,13 +45,14 @@
 -->
     <div class='main-content'>
         <div class="cover-image">
+            <div ng-click="openModal({})" class="edit-profile"><i class="fa fa-pencil-square"></i></div>
             <div class="profile-info">
                 <div class="profile-image">
                 </div>
                 <div class="profile-description">
                     <h3>Logan Marshall</h3>
                     <p>I'm a outdoorsy developer working hard to make the <br> web more beautiful. Follow me, ya'll.</p>
-                    <p><a href=''>logangmarshall.com</a></p>
+                    <p><a href="" target="_blank">logangmarshall.com</a></p>
                 </div>
             </div>
         </div>
@@ -86,12 +95,24 @@
                 </div>
             </div>
         </div>
+        <div class='ten-day-header'>
+            <h3 ng-show="tenHeader">Last 10 Days</h3>
+            <h3 ng-show="thirtyHeader">Last 30 Days</h3>
+        </div>
+        <pom-graph num-days = "numDays" data="graphData"></pom-graph>
+        <div class="stats-footer">
+            <a ng-show="thirtyView" class="follow-btn" href='' ng-click= "toggle30(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i> 30 Day View</a>
+            <a ng-show="tenView" class="follow-btn" href='' ng-click= "toggle10(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i>
+ 10 Day View</a>
+        </div>
+<!--
         <div ng-init="getBarPoms()" class="chart">
             <div class='ten-day-header'>
                 <h3>Last 10 Days</h3>
             </div>
             <canvas ng-show="lineGraph" id="myChart" width="800" height="400"></canvas>
         </div>
+-->
     </div>
     <div class='right-sidebar'>
 <!--

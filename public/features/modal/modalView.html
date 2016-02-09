@@ -1,0 +1,15 @@
+<div class="overlay">
+
+  <!-- text variable that we saved to the scope -->
+  {{text}}
+  <br/>
+
+  <!-- The ng-click runs the close function passing it true or false,
+       which will be passed back to the controller that opend this modal
+       when this modal closes -->
+  <button type="button" ng-click="close('yes')">Yes</button>
+  <button type="button" ng-click="close('no')">No</button>
+</div>
+
+<!-- This closes the modal when you click on the dimmed area around it -->
+<div class="fade" ng-click="close('no')"></div>

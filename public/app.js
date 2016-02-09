@@ -1,4 +1,4 @@
-var app = angular.module('pomodoroApp', ['ui.router']);
+var app = angular.module('pomodoroApp', ['ui.router', 'angularModalService']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     
