@@ -5,8 +5,9 @@ var userSchema = new mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     name: {type: String},
+    website: {type: String},
     profilePic: {type: String},
-    description: {type: String},
+    bio: {type: String},
     backgroundColor: {type: String},
     following: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     followers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]

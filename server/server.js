@@ -6,6 +6,7 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var AWS = require('aws-sdk');
 
 //MY FILE DEPENDENCIES
 var pomController = require('./controllers/pomCtrl');
@@ -50,6 +51,8 @@ app.post('/poms', pomController.create);
 app.get('/poms', pomController.read);
 app.post('/register', userController.create);
 app.get('/users/:email', userController.read);
+app.put('/users', userController.update);
+app.get('/users', userController.refresh);
 
 //START UP SERVER
 app.listen(3000, function() {

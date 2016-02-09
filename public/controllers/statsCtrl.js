@@ -1,4 +1,4 @@
-app.controller('statsCtrl', function($scope, pomodoroService, ModalService) {
+app.controller('statsCtrl', function($scope, pomodoroService, ModalService, userService) {
     
     //JQUERY SIDEBAR NAV
     $scope.numDays = 10;
@@ -160,11 +160,34 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService) {
         }).then(function(modal) {
           // Function that runs when modal closes
           modal.close.then(function(then) {
-            console.log(then);
+            $scope.refresh();
           });
         });
+        
+//        modalObj.close.then(function(){
+//            console.log("Hey MA look No Hands");
+//        })
     }
     
+    //UPDATE PROFILE INFO
+    
+    $scope.profileName = "Welcome to Pomify";
+    $scope.profileBio = "This is your profile page, click the button in the top right to upload pictures and change this description.";
+    $scope.profileSite = "pomify.com";
+    
+    //REFRESH USER INFO 
+    
+    $scope.refresh = function() {
+        userService.refreshUser()
+            .then(function(result) {
+                console.log('CURRENT USER', result);
+                $scope.profileName = result.data.name;
+                $scope.profileBio = result.data.bio;
+                $scope.profileSite = result.data.website;
+        })
+    }
+    
+    $scope.refresh();
     
 })
 

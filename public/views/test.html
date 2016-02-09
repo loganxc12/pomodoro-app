@@ -27,7 +27,7 @@
             </a>
 </div>
 
-<div class="test-wrapper remodal-bg">
+<div class="test-wrapper">
     <div class="nav">
         <div class="hamburger">
             <i class="fa fa-bars"></i>
@@ -50,9 +50,9 @@
                 <div class="profile-image">
                 </div>
                 <div class="profile-description">
-                    <h3>Logan Marshall</h3>
-                    <p>I'm a outdoorsy developer working hard to make the <br> web more beautiful. Follow me, ya'll.</p>
-                    <p><a href="" target="_blank">logangmarshall.com</a></p>
+                    <h3>{{profileName}}</h3>
+                    <p>{{profileBio}}</p>
+                    <p><a href="" target="_blank">{{profileSite}}</a></p>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                 </div>
 -->         <div class="profile-btns">
                 <a class="follow-btn" href=''><i class="fa fa-plus-circle"></i> FOLLOW</a>
-                <a class="follow-btn" href=''><i class="fa fa-envelope"></i> MESSAGE</a>
+                <a ng-click="refresh()" class="follow-btn" href=''><i class="fa fa-envelope"></i> MESSAGE</a>
             </div>
         </div>
         <div class="stats-banner">

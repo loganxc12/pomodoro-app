@@ -3,12 +3,36 @@
   <!-- text variable that we saved to the scope -->
   {{text}}
   <br/>
+    
+    <div class="images-column">
+        <div class="edit-cover-pic">
+            <label for="file-upload" class="custom-file-upload">
+    <i class="fa fa-upload"></i> Upload Cover
+</label>
+<input id="file-upload" type="file"/>
+        </div>
+        <div class="edit-profile-pic">
+            <label for="file-upload" class="custom-file-upload2">
+    <i class="fa fa-upload"></i> Upload Profile
+</label>
+<input id="file-upload" type="file"/>
+        </div>
+    </div>
+    <div class="info-column">
+        <div class="info-form">
+            <div class="info-form-wrapper">
+                <input type="text" placeholder="Name" ng-model="profile.name"/>
+            <input type="text" placeholder="Website" ng-model="profile.website"/>
+            </div>
+        </div>
+        <div class="bio-box">
+            <textarea type="text" placeholder="Bio" ng-model="profile.bio"></textarea>
+            <a href='' ng-click="updateProfile()">Submit</a>
+        </div>
+    </div>
 
-  <!-- The ng-click runs the close function passing it true or false,
-       which will be passed back to the controller that opend this modal
-       when this modal closes -->
-  <button type="button" ng-click="close('yes')">Yes</button>
-  <button type="button" ng-click="close('no')">No</button>
+    
+    
 </div>
 
 <!-- This closes the modal when you click on the dimmed area around it -->

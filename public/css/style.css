@@ -349,7 +349,7 @@ html, body {
 }
 
 .timer-background {
-    background-color: #2F363E;
+    background-color: #202934;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -758,9 +758,9 @@ canvas {
     width: 100%;
     height: 380px;
     margin-top: 50px;
-    background-image: linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url(../Images/vista.jpg);
+    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url('https://static.pexels.com/photos/15217/pexels-photo.jpg');
     background-size: cover;
-    background-position: center;
+    background-position:left;
     display: flex;
 }
 
@@ -792,20 +792,178 @@ canvas {
 }
 
 .overlay {
-  color: black;
   position: fixed;
-  width: 600px;
-  height: 400px;
-  border: 2px solid black;
-  background-color: #fff;
+  width: 775px;
+  height: 450px;
   z-index: 100;
   overflow: auto;
   border-radius: 2px;
-  border: 1px solid #C0C3C5;
   top: 50%;
   left: 50%;
+  background-color: #fff;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
+  display: flex;
+}
+
+.images-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-cover-pic {
+    width: 100%;
+    height: 275px;
+    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url("https://static.pexels.com/photos/15217/pexels-photo.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.edit-profile-pic {
+    width: 100%;
+    height: 275px;
+    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url("../Images/default-profile.jpg");
+    display: flex;
+    background-size: cover;
+    background-position: center;
+}
+
+/* INPUT TYPE FILE BUTTONS */
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    display:inline-block;
+    margin-top: 100px;
+    margin-left: 115px;
+    background-color: #fff;
+    color: #232D38;
+    height: 20px;
+    
+}
+
+.custom-file-upload2 {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    display:inline-block;
+    margin-top: 100px;
+    margin-left: 114px;
+    background-color: #fff;
+    height: 20px;
+    
+}
+
+/* ----------------------- */
+
+.info-column {
+    flex: 1;
+}
+
+.info-form {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-box {
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-label {
+    position: absolute;
+    top: 33px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #2f363e;
+    font-size: 15px;
+}
+
+.site-label {
+    position: absolute;
+    top: 126px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #2f363e;
+    font-size: 15px;
+}
+
+.info-form-wrapper {
+    width: 100%;
+    height: 60%;
+    margin: auto;
+}
+
+.info-form input {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4%;
+    margin-bottom: 35px;
+    padding-left: 12px;
+    font-size: 16px;
+    width: 290px;
+    height: 40px;
+    background-color: #F5F5F5;
+    color: #2c303c;
+    border: 1px solid lightgray;
+}
+
+.info-form input:focus {
+    outline: none !important;
+}
+
+.bio-box textarea {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    line-height: 24px;
+    margin: 0 auto;
+    border-radius: 2%;
+    margin-bottom: 30px;
+    padding-left: 12px;
+    padding-top: 9px;
+    font-size: 16px;
+    width: 290px;
+    height: 120px;
+    background-color: #F5F5F5;
+    color: #2c303c;
+    border: 1px solid lightgray;
+    resize: none;
+}
+
+.bio-box textarea:focus {
+    outline: none !important;
+}
+
+.bio-box a {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    margin-right: 10px;
+    background-color: #37b650;
+    border: 2px solid #29863b;
+    margin: 0 auto;
 }
 
 .fade {
@@ -828,7 +986,7 @@ canvas {
     height: 120px;
     border: 2px solid #fff;
     border-radius: 100%;
-    background-image: url(../Images/prof.jpg);
+    background-image: url("../Images/profy.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -837,8 +995,9 @@ canvas {
     text-align: center;
     letter-spacing: 0.05em;
     font-family: 'Open Sans', sans-serif;
+    margin: 0 auto;
     margin-top: -30px;
-    width: 100%;
+    width: 475px;
     color: #fff;
 }
 
@@ -868,7 +1027,7 @@ canvas {
 .follow-bar {
     max-width: 100%;
     height: 72px;
-    background-color: #232d38;
+    background-color: #202934;
     position: relative;
     display: flex;
 }
