@@ -53,6 +53,10 @@ app.service('userService', function($http) {
         })
     }
     
+    this.getAll = function() {
+        return $http.get('/usersList')
+    }
+    
 })
 
 /*method: 'POST',

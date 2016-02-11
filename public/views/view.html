@@ -33,7 +33,6 @@
             <i class="fa fa-bars"></i>
         </div>
         <angucomplete 
-              ng-mousedown="getSelectedUser()"
               id="userSearch"
               placeholder="Search for users"
               pause="400"
@@ -46,13 +45,6 @@
               inputclass="form-control"
         />
         <span class="search-icon"><i class="fa fa-search"></i></span>
-    
-<!--    
-        <div class="search-bar">
-            <span class="search-icon"><i class="fa fa-search"></i></span>
-            <input type="text" placeholder="Search for users"/>
-        </div>
--->
         <div class="nav-links">
             <p><a class="hvr-underline-from-left" href="/#/">Sign Out</a> </p>
         </div>
@@ -73,13 +65,12 @@
                 <div class="profile-description">
                     <h3>{{profileName}}</h3>
                     <p>{{profileBio}}</p>
-                    <p><a href="" target="_blank">{{profileSite}}</a></p>
+                    <p><a href="{{profileSite}}" target="_blank">{{profileSite}}</a></p>
                 </div>
             </div>
         </div>
         <div class="follow-bar">
 <!--
-
                 <div class="age">
                     <h4>AGE</h4>
                     <h2>23</h2>
@@ -92,11 +83,10 @@
                     <h4>TOTAL POMS</h4>
                     <h2>150</h2>
                 </div>
-         <div class="profile-btns">
+-->         <div class="profile-btns">
                 <a class="follow-btn" href=''><i class="fa fa-plus-circle"></i> FOLLOW</a>
                 <a ng-click="refresh()" class="follow-btn" href=''><i class="fa fa-envelope"></i> MESSAGE</a>
             </div>
--->
         </div>
         <div class="stats-banner">
             <div ng-init="getPoms()" class="todays-stats">

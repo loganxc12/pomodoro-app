@@ -275,8 +275,29 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
         $scope.profileBio = "This is your profile page, click the button in the top right to upload pictures and change this description.";
         $scope.profileSite = "pomify.com";
     }
+    
+    $scope.getAll = function() {
+        userService.getAll()
+            .then(function(result) {
+                console.log(result);
+                $scope.allUsers = result.data;
+        })
+    }
+    
+    $scope.getSelectedUser = function() {
+        if ($scope.selectedUser == undefined) {
+            console.log('no selected user');
+        } else {
+            console.log($scope.selectedUser);
+        }
+    }
+    
+    $('.angucomplete-dropdown').mousedown(function() {
+        console.log('FUCK EVERYTHING');
+    })
 
     $scope.refresh();
+     $scope.getAll();
     
 })
 

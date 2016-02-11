@@ -1,4 +1,4 @@
-var app = angular.module('pomodoroApp', ['ui.router', 'angularModalService']);
+var app = angular.module('pomodoroApp', ['ui.router', 'angularModalService', 'angucomplete']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     
@@ -19,10 +19,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'views/dash.html',
                 controller: 'dashCtrl'
         })
-        .state('stats', {
-                url: '/stats',
-                templateUrl: 'views/stats.html',
-                controller: 'statsCtrl'
+        .state('view', {
+                url: '/view',
+                templateUrl: 'views/view.html',
+                controller: 'statsCtrl',
+                resolve: {
+                    profile: function(userService) {
+                        return userService.refreshUser();
+                    }
+                }
         })
         .state('login', {
                 url: '/login',

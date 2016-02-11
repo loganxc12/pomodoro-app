@@ -64,6 +64,17 @@ module.exports = {
                 res.json(result);
             }
         })
+    },
+    
+    getAllUsers: function(req, res) {
+        User.find({}, function(err, result) {
+            console.log(result);
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(result);
+            }
+        })
     }
     
 }

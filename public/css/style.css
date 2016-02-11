@@ -46,12 +46,12 @@ html, body {
     font-size: 0.9em;
 }
 
-.search-bar {
+#userSearch {
     position: relative;
     left: 60px;
-    top: 11px;
-    height: 30px;
-    width: 190px;
+    top: 8px;
+    height: 28px;
+    width: 220px;
     color: #fff;
     font-size: 1.2em;
 }
@@ -75,9 +75,9 @@ html, body {
 
 .search-icon {
     position: absolute;
-    font-size: 0.8em;
-    top: 4px;
-    right: 2px;
+    font-size: 0.9em;
+    top: 15.5px;
+    left: 300px;
     color: #AAAAAA;
 }
 
@@ -510,7 +510,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     color: #2870A6;
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 /*
@@ -622,7 +622,7 @@ canvas {
 .footer {
     width: 100%;
     height: 100px;
-    background-color: #2F363E;
+    background-color: #202934;
     display: flex;
 }
 
@@ -798,7 +798,7 @@ canvas {
 
 .cover-image {
     width: 100%;
-    height: 380px;
+    height: 390px;
     margin-top: 50px;
 /*    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url('https://static.pexels.com/photos/25734/pexels-photo-large.jpg');*/
     background-size: cover;
@@ -914,7 +914,7 @@ input[type="file"] {
     position: absolute;
     right: 12px;
     top: 9px;
-    color: gray;
+    color: #939393;
 }
 
 .info-column i:hover {
@@ -1034,8 +1034,8 @@ input[type="file"] {
 .profile-image {
     margin: 30px auto;
     margin-bottom: 60px;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border: 2px solid #fff;
     border-radius: 100%;
     background-size: cover;
@@ -1078,6 +1078,14 @@ input[type="file"] {
 .follow-bar {
     max-width: 100%;
     height: 72px;
+    background-color: #202934;
+    position: relative;
+    display: flex;
+}
+
+.profile-follow-bar {
+    max-width: 100%;
+    height: 25px;
     background-color: #202934;
     position: relative;
     display: flex;

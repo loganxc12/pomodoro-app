@@ -65,6 +65,7 @@ app.put('/users', userController.update);
 app.put('/usercover', userController.updateCover);
 app.put('/userprofile', userController.updateProfile);
 app.get('/users', userController.refresh);
+app.get('/usersList', userController.getAllUsers);
 //FILE UPLOAD ENDPOINT
 app.post('/uploadImage', function(req, res) {
     console.log('FILENAME ', req.body.fileName);
