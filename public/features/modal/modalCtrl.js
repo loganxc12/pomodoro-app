@@ -1,4 +1,5 @@
 app.controller('modalCtrl', function($scope, close, profile, userService) {
+    var modalScope = $scope;
     $scope.close = close;
     $scope.profile = profile;
     $scope.user = userService.currentUser();

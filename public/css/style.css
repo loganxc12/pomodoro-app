@@ -800,7 +800,7 @@ canvas {
     width: 100%;
     height: 380px;
     margin-top: 50px;
-    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4));
+/*    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url('https://static.pexels.com/photos/25734/pexels-photo-large.jpg');*/
     background-size: cover;
     background-position:left;
     display: flex;
@@ -908,6 +908,17 @@ input[type="file"] {
 
 .info-column {
     flex: 1;
+}
+
+.info-column i {
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    color: gray;
+}
+
+.info-column i:hover {
+    cursor: pointer;
 }
 
 .info-form {

@@ -176,11 +176,41 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
         userService.refreshUser()
             .then(function(result) {
                 console.log('CURRENT USER', result);
-                $scope.profileName = result.data.name;
-                $scope.profileBio = result.data.bio;
-                $scope.profileSite = result.data.website;
-                $scope.coverPic = result.data.coverPic;
-                $scope.profilePic = result.data.profilePic;
+                //CHECK FOR NAME DATA OR SET DEFAULT
+                if (result.data.name) {
+                    $scope.profileName = result.data.name;
+                } else {
+                    $scope.profileName = "Welcome To Pomify";
+                }
+                //CHECK FOR WEBSITE DATA OR SET DEFAULT
+                if (result.data.website) {
+                    $scope.profileSite = result.data.website;
+                } else {
+                    $scope.profileSite = "pomify.com";
+                }
+                //CHECK FOR BIO DATA OR SET DEFAULT
+                if (result.data.bio) {
+                    $scope.profileBio = result.data.bio;
+                } else {
+                    $scope.profileBio = "Click the button in the top right corner to upload pictures and edit this description.";
+                }
+                //CHECK FOR COVER PIC OR SET DEFAULT
+                if (result.data.coverPic) {
+                    $scope.coverPic = result.data.coverPic;
+                } else {
+                    $scope.coverPic = "../Images/default-cover.jpg";
+                }
+                //CHECK FOR PROFILE PIC OR SET DEFAULT
+                if (result.data.profilePic) {
+                    $scope.profilePic = result.data.profilePic;
+                } else {
+                    $scope.profilePic = "../Images/profy.jpg";
+                }
+//                $scope.profileName = result.data.name;
+//                $scope.profileBio = result.data.bio;
+//                $scope.profileSite = result.data.website;
+//                $scope.coverPic = result.data.coverPic;
+//                $scope.profilePic = result.data.profilePic;
         })
     }
     
@@ -201,19 +231,20 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
                     fileBody: loaded.target.result
                 };
                 userService.uploadImage(newFile).then(function(data) {
-                    $scope.refresh();
+//                    $scope.refresh();
                     if (event.currentTarget.id == 'cover-upload') {
+        
+                        $("#modalCoverPhoto").css("background-image","url('"+ data.data.Location + "')");
                         userService.updateCover(data.data.Location)
                             .then(function(result) {
                                 console.log('END RESULT', result);
-//                                $scope.refresh();
                         })
                         
                     } else if (event.currentTarget.id == 'profile-upload') {
+                        $("#modalProfilePhoto").css("background-image","url('"+ data.data.Location + "')");
                         userService.updateProfile(data.data.Location)
                             .then(function(result) {
-                                console.log('END RESULT', result);
-//                                $scope.refresh();
+                                console.log('END RESULT', result);      
                         })
                     }
                     console.log(event.currentTarget.id);
@@ -245,7 +276,7 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
         $scope.profileSite = "pomify.com";
     }
 
-    
+    $scope.refresh();
     
 })
 

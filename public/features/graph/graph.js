@@ -30,8 +30,8 @@ app.directive('pomGraph', function() {
                     label: "My First dataset",
                     fillColor: "rgba(55, 135, 191, 0.4)",
                     strokeColor: "rgba(55, 135, 191, 1)",
-                    highlightFill: "rgba(55, 182, 80, 0.8)",
-                    highlightStroke: "rgba(55, 182, 80, 1)",
+                    highlightFill: "rgba(55, 135, 191, 1)",
+                    highlightStroke: "rgba(55, 135, 191, 1)",
                     data: graphData
                 }]
                 }
