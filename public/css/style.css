@@ -46,6 +46,41 @@ html, body {
     font-size: 0.9em;
 }
 
+.search-bar {
+    position: relative;
+    left: 60px;
+    top: 11px;
+    height: 30px;
+    width: 190px;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 25px;
+    font-size: 14px;
+    line-height: 25px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.03em;
+    color: #202934;
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    font-size: 0.8em;
+    top: 4px;
+    right: 2px;
+    color: #AAAAAA;
+}
+
 .nav-links p {
     margin: auto 0;
     margin-top: 14px;
@@ -653,9 +688,16 @@ canvas {
 
 .following-label {
     font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.07em;
     color: #8b8f9a;
+    width: 100%;
+    height: 30px;
+    text-align: center;
     font-weight: 200;
     margin-top: 100px;
+    margin: 0;
+/*    background-color: #202934;*/
 }
 
 .friend {
@@ -758,7 +800,7 @@ canvas {
     width: 100%;
     height: 380px;
     margin-top: 50px;
-    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url('https://static.pexels.com/photos/15217/pexels-photo.jpg');
+    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4));
     background-size: cover;
     background-position:left;
     display: flex;
@@ -815,7 +857,6 @@ canvas {
 .edit-cover-pic {
     width: 100%;
     height: 275px;
-    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url("https://static.pexels.com/photos/15217/pexels-photo.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -823,7 +864,6 @@ canvas {
 .edit-profile-pic {
     width: 100%;
     height: 275px;
-    background-image: linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0, 0.4)), url("../Images/default-profile.jpg");
     display: flex;
     background-size: cover;
     background-position: center;
@@ -834,6 +874,7 @@ canvas {
 input[type="file"] {
     display: none;
 }
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -986,7 +1027,6 @@ input[type="file"] {
     height: 120px;
     border: 2px solid #fff;
     border-radius: 100%;
-    background-image: url("../Images/profy.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -1128,6 +1168,7 @@ input[type="file"] {
 .stats-footer {
     width: 100%;
     height: 80px;
+    margin-top: 0;
     display: flex;
 }
 
@@ -1138,3 +1179,5 @@ input[type="file"] {
     background-color: #EF4B50;
     font-size: 15px;
 }
+
+/* , url('https://static.pexels.com/photos/15217/pexels-photo.jpg');*/

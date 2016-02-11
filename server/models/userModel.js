@@ -7,6 +7,7 @@ var userSchema = new mongoose.Schema({
     name: {type: String},
     website: {type: String},
     profilePic: {type: String},
+    coverPic: {type: String},
     bio: {type: String},
     backgroundColor: {type: String},
     following: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],

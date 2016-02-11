@@ -29,10 +29,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'views/login.html',
                 controller: 'loginCtrl'
         })
-        .state('test', {
-                url: '/test',
-                templateUrl: 'views/test.html',
-                controller: 'statsCtrl'
+        .state('profile', {
+                url: '/profile',
+                templateUrl: 'views/profile.html',
+                controller: 'statsCtrl',
+                resolve: {
+                    profile: function(userService) {
+                        return userService.refreshUser();
+                    }
+                }
         })
     
 })

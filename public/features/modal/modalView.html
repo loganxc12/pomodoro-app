@@ -5,29 +5,30 @@
   <br/>
     
     <div class="images-column">
-        <div class="edit-cover-pic">
-            <label for="file-upload" class="custom-file-upload">
+        <div class="edit-cover-pic" my-modal-cover="{{modalCoverPic}}">
+            <label for="cover-upload" class="custom-file-upload">
     <i class="fa fa-upload"></i> Upload Cover
 </label>
-<input id="file-upload" type="file"/>
+<input id = "cover-upload" class="file-upload-button" type="file" data = "thing2"/>
         </div>
-        <div class="edit-profile-pic">
-            <label for="file-upload" class="custom-file-upload2">
+        <div class="edit-profile-pic" my-profile-image="{{modalProfilePic}}">
+            <label for="profile-upload" class="custom-file-upload2">
     <i class="fa fa-upload"></i> Upload Profile
 </label>
-<input id="file-upload" type="file"/>
+<input id = "profile-upload" class="file-upload-button" type="file" data="thing1"/>
         </div>
     </div>
     <div class="info-column">
         <div class="info-form">
             <div class="info-form-wrapper">
                 <input type="text" placeholder="Name" ng-model="profile.name"/>
-            <input type="text" placeholder="Website" ng-model="profile.website"/>
+                <input type="text" placeholder="Website" ng-model="profile.website"/>
             </div>
         </div>
         <div class="bio-box">
             <textarea type="text" placeholder="Bio" ng-model="profile.bio"></textarea>
-            <a href='' ng-click="updateProfile()">Submit</a>
+            <a href='' ng-click="updateProfile(); reloadPage()">Submit</a>
+
         </div>
     </div>
 

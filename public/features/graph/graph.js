@@ -20,7 +20,7 @@ app.directive('pomGraph', function() {
                 for (var i=0;i<scope.numDays;i++){
                     graphData.unshift( scope.data[i]?scope.data[i].length : 0 );
                     
-                    labels.unshift( (i==0?"today":moment().subtract(i,'days').format("MMMD")))
+                    labels.unshift( (i==0?"TODAY":moment().subtract(i,'days').format("MMM D").toUpperCase()))
                     
                 }
                 var data = {
@@ -28,8 +28,8 @@ app.directive('pomGraph', function() {
                 datasets: [
                 {
                     label: "My First dataset",
-                    fillColor: "rgba(55, 182, 80, 0.4)",
-                    strokeColor: "rgba(55, 182, 80, 1)",
+                    fillColor: "rgba(55, 135, 191, 0.4)",
+                    strokeColor: "rgba(55, 135, 191, 1)",
                     highlightFill: "rgba(55, 182, 80, 0.8)",
                     highlightStroke: "rgba(55, 182, 80, 1)",
                     data: graphData
@@ -67,7 +67,7 @@ app.directive('pomGraph', function() {
                 barShowStroke : true,
 
                 //Number - Pixel width of the bar stroke
-                barStrokeWidth : 1,
+                barStrokeWidth : 2,
 
                 //Number - Spacing between each of the X value sets
                 barValueSpacing : 7,

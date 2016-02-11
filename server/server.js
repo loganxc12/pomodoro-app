@@ -34,6 +34,16 @@ app.use(passport.session());
 //STATICALLY SERVE PUBLIC FOLDER
 app.use(express.static(__dirname + '/../public'));
 
+//AMAZON S3 SETUP
+var bucketName = 'pomifybucket';
+
+AWS.config.update({
+    accessKeyId: process.env.AMZ_S3_ID,
+    secretAccessKey: process.env.AMZ_S3_SECRET,
+    region: process.env.AMZ_S3_REGION
+});
+
+var s3 = new AWS.S3();
 
 //CONNECT TO MONGO DATABASE VIA MONGOOSE
 var mongoUri = "mongodb://localhost:27017/pomodoro";
@@ -52,7 +62,32 @@ app.get('/poms', pomController.read);
 app.post('/register', userController.create);
 app.get('/users/:email', userController.read);
 app.put('/users', userController.update);
+app.put('/usercover', userController.updateCover);
+app.put('/userprofile', userController.updateProfile);
 app.get('/users', userController.refresh);
+//FILE UPLOAD ENDPOINT
+app.post('/uploadImage', function(req, res) {
+    console.log('FILENAME ', req.body.fileName);
+    var buf = new Buffer(req.body.fileBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+    var params = {
+        Bucket: bucketName,
+        Key: req.body.fileName,
+        Body: buf,
+        ContentType: 'image/' + req.body.fileName.substring(req.body.fileName.lastIndexOf('.')),
+        ACL: 'public-read'
+    };
+    
+    s3.upload(params, function(err, data) {
+        if(err) {
+            console.error(err);
+            return res.json(err);
+        } else {
+            console.log('upload successful');
+            return res.json(data);
+        }
+    });     
+})
+
 
 //START UP SERVER
 app.listen(3000, function() {
@@ -130,3 +165,6 @@ passport.use(new LocalStrategy({
 );
 
 */
+
+// localhost:3000/#/profile
+// localhost:3000/#/view

@@ -1,4 +1,7 @@
-app.controller('statsCtrl', function($scope, pomodoroService, ModalService, userService) {
+app.controller('statsCtrl', function($scope, pomodoroService, ModalService, userService, profile) {
+    
+    angular.ModalService = ModalService;
+    console.log('MODAL: ', ModalService);
     
     //JQUERY SIDEBAR NAV
     $scope.numDays = 10;
@@ -8,7 +11,6 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
     $scope.toggle10 = function(){
         $scope.numDays = 10;
     }
-    
     
     
     $scope.graphData = [];
@@ -164,16 +166,9 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
           });
         });
         
-//        modalObj.close.then(function(){
-//            console.log("Hey MA look No Hands");
-//        })
+        window.setTimeout(setupUploadEvent, 1000);
+        
     }
-    
-    //UPDATE PROFILE INFO
-    
-    $scope.profileName = "Welcome to Pomify";
-    $scope.profileBio = "This is your profile page, click the button in the top right to upload pictures and change this description.";
-    $scope.profileSite = "pomify.com";
     
     //REFRESH USER INFO 
     
@@ -184,10 +179,73 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
                 $scope.profileName = result.data.name;
                 $scope.profileBio = result.data.bio;
                 $scope.profileSite = result.data.website;
+                $scope.coverPic = result.data.coverPic;
+                $scope.profilePic = result.data.profilePic;
         })
     }
     
-    $scope.refresh();
+    function setupUploadEvent() { 
+        console.log('Setting up listeners');
+        $('.file-upload-button').change(function(event) {
+            console.log(event);
+            console.log('File: ', event.target.files[0]);
+            //Make a file reader
+            var fileReader = new FileReader();
+            //Tell what to do when it has loaded
+            fileReader.onload = function(loaded) {
+                //Once loaded, run this code
+                console.log(loaded);
+
+                var newFile = {
+                    fileName: event.target.files[0].name,
+                    fileBody: loaded.target.result
+                };
+                userService.uploadImage(newFile).then(function(data) {
+                    $scope.refresh();
+                    if (event.currentTarget.id == 'cover-upload') {
+                        userService.updateCover(data.data.Location)
+                            .then(function(result) {
+                                console.log('END RESULT', result);
+//                                $scope.refresh();
+                        })
+                        
+                    } else if (event.currentTarget.id == 'profile-upload') {
+                        userService.updateProfile(data.data.Location)
+                            .then(function(result) {
+                                console.log('END RESULT', result);
+//                                $scope.refresh();
+                        })
+                    }
+                    console.log(event.currentTarget.id);
+                }).catch(function(err) {
+                    console.error('upload err: ',err);
+                });
+
+            };
+
+            fileReader.readAsDataURL(event.target.files[0]);
+        });
+    }
+     
+    
+    //UPDATE PROFILE INFO
+    
+//    $scope.coverPic = { 'url(http://tophdimgs.com/data_images/wallpapers/28/420966-natur.jpg)'
+//    }
+//    
+    if (profile.status == 200) {
+        $scope.coverPic = profile.data.coverPic;
+        $scope.profilePic = profile.data.profilePic;
+        $scope.profileName = profile.data.name;
+        $scope.profileBio = profile.data.bio;
+        $scope.profileSite = profile.data.website;
+    } else {
+        $scope.profileName = "Welcome to Pomify";
+        $scope.profileBio = "This is your profile page, click the button in the top right to upload pictures and change this description.";
+        $scope.profileSite = "pomify.com";
+    }
+
+    
     
 })
 

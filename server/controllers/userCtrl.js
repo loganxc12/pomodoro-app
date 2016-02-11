@@ -42,6 +42,28 @@ module.exports = {
                 res.json(result);
             }
         })
+    },
+    
+    updateCover: function(req, res) {
+        console.log(req.body);
+        User.findByIdAndUpdate(req.user._id, { coverPic: req.body.url }, {new: true}, function(err, result) {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(result);
+            }
+        })
+    },
+    
+    updateProfile: function(req, res) {
+        console.log(req.body);
+        User.findByIdAndUpdate(req.user._id, { profilePic: req.body.url }, {new: true}, function(err, result) {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(result);
+            }
+        })
     }
     
 }

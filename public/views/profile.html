@@ -32,6 +32,11 @@
         <div class="hamburger">
             <i class="fa fa-bars"></i>
         </div>
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa fa-search"></i></span>
+            <input type="text" placeholder="Search for users"/>
+<!--            <i class="fa fa-search"></i>-->
+        </div>
         <div class="nav-links">
             <p><a class="hvr-underline-from-left" href="">Sign Out</a> </p>
         </div>
@@ -44,10 +49,10 @@
     </div>
 -->
     <div class='main-content'>
-        <div class="cover-image">
+        <div class="cover-image" my-background-image="{{coverPic}}">
             <div ng-click="openModal({})" class="edit-profile"><i class="fa fa-pencil-square"></i></div>
             <div class="profile-info">
-                <div class="profile-image">
+                <div class="profile-image" my-profile-image={{profilePic}}>
                 </div>
                 <div class="profile-description">
                     <h3>{{profileName}}</h3>
@@ -115,11 +120,11 @@
 -->
     </div>
     <div class='right-sidebar'>
-<!--
+
         <div class='following-label'>
             <h3>FOLLOWING</h3>
         </div>
--->
+     
         <div class='friend'>
             <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xlf1/v/t1.0-9/1929706_10156333716235494_5052873551228195895_n.jpg?oh=944098d855af98f7959a4ea7fec423ab&oe=5728A196'>
             <h3>Brittany Cooper</h3>
