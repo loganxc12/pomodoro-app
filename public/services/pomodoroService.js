@@ -62,8 +62,75 @@ app.service('pomodoroService', function($http) {
             //HANDLE ERROR SCENARIO
             }, function(err) {
           console.log(err);
-    })
-}
+        })
+    }
+    
+    //GET SELECTED POMS FOR GRAPH
+    
+    this.getGraphPoms = function(user) {
+        return $http.get('/userPoms/' + user)
+            .then(function(result) {
+                console.log(result.data);
+                //Basic time setup
+                var milInDay = 1000 * 60 * 60 * 24;
+                var currentDate = new Date().getTime();
+                var midnight = new Date().setHours(0, 0, 0, 0);
+            
+                var groupedData = _.groupBy(result.data, function(pom){
+                    return Math.floor((midnight - moment(pom.timeCompleted))/milInDay)+1;
+                })
+                
+                console.log("GROUPED DATA", groupedData);
+            
+                return groupedData;
+            //HANDLE ERROR SCENARIO
+            }, function(err) {
+          console.log(err);
+        })
+    }
+    
+    //GET SELECTED POMS (FOR OTHER USER'S PAGES)
+    
+    this.getSelectedPoms = function(user) {
+        return $http.get('/userPoms/' + user)
+            .then(function(result) {
+                console.log(result.data);
+                var milInDay = 1000 * 60 * 60 * 24;
+                var currentDate = new Date().getTime();
+                var midnight = new Date().setHours(0, 0, 0, 0);
+                var weekAgo = midnight - milInDay * 7;
+                var monthAgo = midnight - milInDay * 30;
+                var dataObj = {};
+                dataObj.today = [];
+                dataObj.week = [];
+                dataObj.month = [];
+            for (var i = 0; i < result.data.length; i++) {
+                if (Date.parse(result.data[i].timeCompleted) > midnight) {
+                    dataObj.today.push(result.data[i]);
+                } 
+                if (Date.parse(result.data[i].timeCompleted) > weekAgo) {
+                    dataObj.week.push(result.data[i]);
+                }
+                if (Date.parse(result.data[i].timeCompleted) > monthAgo) {
+                    dataObj.month.push(result.data[i]);
+                }
+                
+            }
+                return dataObj;
+            }, function(err) {
+                console.log(err);
+        })
+    }
+    
+//    this.getSelectedPoms = function(user) {
+//        
+//        return $http.get('/userPoms/' + user);
+//        
+//    }
+    
+    
+    
+    
                 
 //                //Define millisecond ranges
 //                var yesterday = midnight - milInDay;

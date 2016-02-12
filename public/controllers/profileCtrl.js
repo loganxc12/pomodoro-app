@@ -1,4 +1,4 @@
-app.controller('statsCtrl', function($scope, pomodoroService, ModalService, userService, profile) {
+app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalService, userService, profile) {
     
     angular.ModalService = ModalService;
     console.log('MODAL: ', ModalService);
@@ -192,7 +192,7 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
                 if (result.data.bio) {
                     $scope.profileBio = result.data.bio;
                 } else {
-                    $scope.profileBio = "Click the button in the top right corner to upload pictures and edit this description.";
+                    $scope.profileBio = "Click the button in the top right corner to upload pictures and edit this description!";
                 }
                 //CHECK FOR COVER PIC OR SET DEFAULT
                 if (result.data.coverPic) {
@@ -265,6 +265,7 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
 //    }
 //    
     if (profile.status == 200) {
+        console.log('PROFILE IS RUNNING');
         $scope.coverPic = profile.data.coverPic;
         $scope.profilePic = profile.data.profilePic;
         $scope.profileName = profile.data.name;
@@ -280,23 +281,28 @@ app.controller('statsCtrl', function($scope, pomodoroService, ModalService, user
         userService.getAll()
             .then(function(result) {
                 console.log(result);
+                for(var i = 0; i < result.data.length; i++) {
+                    if (result.data[i].profilePic == undefined){
+                        result.data[i].profilePic = 'Images/profy.jpg';
+                    }
+                }
                 $scope.allUsers = result.data;
         })
     }
     
     $scope.getSelectedUser = function() {
+        
         if ($scope.selectedUser == undefined) {
             console.log('no selected user');
         } else {
-            console.log($scope.selectedUser);
+            console.log('got to else');
+            $scope.selectedId = $scope.selectedUser.originalObject._id;
+            $state.go('view', {user: $scope.selectedId});
         }
     }
     
-    $('.angucomplete-dropdown').mousedown(function() {
-        console.log('FUCK EVERYTHING');
-    })
 
-    $scope.refresh();
+//     $scope.refresh();
      $scope.getAll();
     
 })

@@ -19,16 +19,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'views/dash.html',
                 controller: 'dashCtrl'
         })
-        .state('view', {
-                url: '/view',
-                templateUrl: 'views/view.html',
-                controller: 'statsCtrl',
-                resolve: {
-                    profile: function(userService) {
-                        return userService.refreshUser();
-                    }
-                }
-        })
         .state('login', {
                 url: '/login',
                 templateUrl: 'views/login.html',
@@ -37,10 +27,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('profile', {
                 url: '/profile',
                 templateUrl: 'views/profile.html',
-                controller: 'statsCtrl',
+                controller: 'profileCtrl',
                 resolve: {
                     profile: function(userService) {
                         return userService.refreshUser();
+                    }
+                }
+        })
+        .state('view', {
+                url: '/view/:user',
+                templateUrl: 'views/view.html',
+                controller: 'viewCtrl',
+                resolve: {
+                    profile: function(userService, $stateParams) {
+                        return userService.getOne($stateParams.user);
+                    },
+                    poms: function(pomodoroService, $stateParams) {
+                        return pomodoroService.getSelectedPoms($stateParams.user);
+                    },
+                    graph: function(pomodoroService, $stateParams) {
+                        return pomodoroService.getGraphPoms($stateParams.user);
                     }
                 }
         })

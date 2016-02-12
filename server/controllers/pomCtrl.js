@@ -21,6 +21,27 @@ module.exports = {
                 res.json(result);
             }
         })
-    }   
+    },
+    
+    getOne: function (req, res) {
+        Poms.find({'user': req.params.user}, function(err, result) {
+           if (err) {
+               res.json(err);
+            } else {
+               res.json(result);
+            } 
+        })
+    }
+    
+//    populateGraph: function (req, res) {
+//        Poms.find({user: req.params.user}, function(err, result) {
+//           if (err) {
+//               res.json(err);
+//            } else {
+//               res.json(result);
+//            } 
+//        })
+//                 
+//    }
     
 }

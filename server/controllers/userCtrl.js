@@ -75,6 +75,16 @@ module.exports = {
                 res.json(result);
             }
         })
+    }, 
+    
+    getOne: function(req, res) {
+        User.findOne({'_id': req.params.user}, function(err, result) {
+            if (err) {
+               res.json(err);
+            } else {
+                res.json(result);
+            }
+        })
     }
     
 }

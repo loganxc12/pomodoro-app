@@ -17,11 +17,11 @@
                 </div>
             </div>
             </a>
-            <a href="#/stats">
+            <a href="#/profile">
             <div class="chat-box">
                 <div class="stats-button">
-                    <i class="fa fa-comments-o"></i>
-                    <h4>Group Chat</h4>
+                    <i class="fa fa-user"></i>
+                    <h4>My Profile</h4>
                 </div>
             </div>
             </a>
@@ -32,7 +32,8 @@
         <div class="hamburger">
             <i class="fa fa-bars"></i>
         </div>
-        <angucomplete 
+        <angucomplete
+              ng-mousedown="getSelectedUser()"
               id="userSearch"
               placeholder="Search for users"
               pause="400"
@@ -57,15 +58,15 @@
     </div>
 -->
     <div class='main-content'>
-        <div class="cover-image" my-background-image="{{coverPic}}">
-            <div ng-click="openModal({})" class="edit-profile"><i class="fa fa-pencil-square"></i></div>
+        <div class="cover-image" my-background-image="{{selectedCover}}">
+<!--            <div ng-click="openModal({})" class="edit-profile"><i class="fa fa-pencil-square"></i></div>-->
             <div class="profile-info">
-                <div class="profile-image" my-profile-image={{profilePic}}>
+                <div class="profile-image" my-profile-image="{{selectedProfile}}">
                 </div>
                 <div class="profile-description">
-                    <h3>{{profileName}}</h3>
-                    <p>{{profileBio}}</p>
-                    <p><a href="{{profileSite}}" target="_blank">{{profileSite}}</a></p>
+                    <h3>{{selectedName}}</h3>
+                    <p>{{selectedBio}}</p>
+                    <p><a href="{{profileSite}}" target="_blank">{{selectedSite}}</a></p>
                 </div>
             </div>
         </div>
@@ -91,19 +92,19 @@
         <div class="stats-banner">
             <div ng-init="getPoms()" class="todays-stats">
                 <div class="num">
-                    <h1>{{bannerToday.length}}</h1>
+                    <h1>{{selectedToday.length}}</h1>
                     <h4>TODAY</h4>
                 </div>
             </div>
             <div class="weekly-stats">
                 <div class="num">
-                    <h1>{{bannerWeek.length}}</h1>
+                    <h1>{{selectedWeek.length}}</h1>
                     <h4>THIS <span>WEEK</span></h4>
                 </div>
             </div>
             <div class="monthly-stats">
                 <div class="num">
-                    <h1>{{bannerMonth.length}}</h1>
+                    <h1>{{selectedMonth.length}}</h1>
                     <h4>THIS <span>MONTH</span></h4>
                 </div>
             </div>
@@ -112,7 +113,7 @@
             <h3 ng-show="tenHeader">Last 10 Days</h3>
             <h3 ng-show="thirtyHeader">Last 30 Days</h3>
         </div>
-        <pom-graph num-days = "numDays" data="graphData"></pom-graph>
+        <pom-graph num-days = "numDays" data="selectedGraphData"></pom-graph>
         <div class="stats-footer">
             <a ng-show="thirtyView" class="follow-btn" href='' ng-click= "toggle30(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i> 30 Day View</a>
             <a ng-show="tenView" class="follow-btn" href='' ng-click= "toggle10(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i>

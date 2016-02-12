@@ -2,11 +2,11 @@ app.directive('myBackgroundImage', function () {
     return function (scope, element, attrs) {
         console.log('adding backgrond: ', attrs.myBackgroundImage);
         element.css({
-            'background-image': 'linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url(' + attrs.myBackgroundImage + ')'
+            'background-image': 'linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url(' + attrs.myBackgroundImage + ')'
         });
         window.setTimeout(function() {
             element.css({
-            'background-image': 'linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url(' + attrs.myBackgroundImage + ')'});
+            'background-image': 'linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url(' + attrs.myBackgroundImage + ')'});
         }, 500);
     };
 });

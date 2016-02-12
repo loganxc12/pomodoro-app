@@ -57,6 +57,20 @@ app.service('userService', function($http) {
         return $http.get('/usersList')
     }
     
+    this.getOne = function(user) {
+        return $http.get('/userx/' + user);
+    }
+    
+    
+//    this.getSelectedUser = function(user) {
+//        return $http.get('/userx')
+//            .then(function(result) {
+//                return result;
+//            }, function(err) {
+//                console.log(err);
+//        })
+//    } 
+    
 })
 
 /*method: 'POST',

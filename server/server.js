@@ -59,6 +59,8 @@ app.post('/login', passport.authenticate('local-signup', {
 }));
 app.post('/poms', pomController.create);
 app.get('/poms', pomController.read);
+app.get('/userPoms/:user', pomController.getOne);
+//app.get('graphPoms/:user', pomController.getOne);
 app.post('/register', userController.create);
 app.get('/users/:email', userController.read);
 app.put('/users', userController.update);
@@ -66,6 +68,8 @@ app.put('/usercover', userController.updateCover);
 app.put('/userprofile', userController.updateProfile);
 app.get('/users', userController.refresh);
 app.get('/usersList', userController.getAllUsers);
+app.get('/userx/:user', userController.getOne);
+
 //FILE UPLOAD ENDPOINT
 app.post('/uploadImage', function(req, res) {
     console.log('FILENAME ', req.body.fileName);
