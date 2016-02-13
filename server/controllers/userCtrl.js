@@ -85,6 +85,16 @@ module.exports = {
                 res.json(result);
             }
         })
+    },
+    
+    addToFollowing: function (req, res) {
+        User.findByIdAndUpdate(req.user._id, {$push: {following: req.body.user}}, {new: true}, function(err, result) {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(result);
+            }
+        })
     }
     
 }

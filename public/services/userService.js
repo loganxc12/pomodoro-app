@@ -1,4 +1,6 @@
 app.service('userService', function($http) {
+    
+    var self = this;
     var user = {};
     this.updateProfileInfo = function(profile) {
         return $http.put('/users', profile)
@@ -59,6 +61,23 @@ app.service('userService', function($http) {
     
     this.getOne = function(user) {
         return $http.get('/userx/' + user);
+    }
+    
+    this.followUser = function(userToFollow) {
+        self.getOne(userToFollow)
+            .then(function(result) {
+                var userObj = result.data;
+                return $http.put('/follow', {user: userObj} )
+            }, function(err) {
+                console.log(err);
+        })
+        
+//        return $http.put('/follow', {user: userObj})
+//            .then(function(result) {
+//                return result;
+//            }, function(err) {
+//                console.log(err);
+//        })
     }
     
     

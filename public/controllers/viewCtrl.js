@@ -1,4 +1,4 @@
-app.controller('viewCtrl', function($scope, $state, pomodoroService, ModalService, userService, profile, poms, graph) {
+app.controller('viewCtrl', function($scope, $state, $stateParams, pomodoroService, ModalService, userService, profile, poms, graph) {
     
     angular.ModalService = ModalService;
     console.log('MODAL: ', ModalService);
@@ -26,16 +26,16 @@ app.controller('viewCtrl', function($scope, $state, pomodoroService, ModalServic
         });
     
     
-//    //Get Pom Data (FOR TOP NUMBER SECTION)
-//    $scope.getPoms = function() {
-//        pomodoroService.getPoms()
-//            .then(function(result) {
-//                console.log('RESULT -->' + result);
-//                $scope.bannerToday = result.today;
-//                $scope.bannerWeek = result.week;
-//                $scope.bannerMonth = result.month;
-//        })
-//    }
+    //Get Pom Data (FOR TOP NUMBER SECTION)
+    $scope.getPoms = function() {
+        pomodoroService.getPoms()
+            .then(function(result) {
+                console.log('RESULT -->' + result);
+                $scope.bannerToday = result.today;
+                $scope.bannerWeek = result.week;
+                $scope.bannerMonth = result.month;
+        })
+    }
     
     //Get Pom Data (FOR BAR GRAPH)
     
@@ -327,6 +327,12 @@ app.controller('viewCtrl', function($scope, $state, pomodoroService, ModalServic
     
     //CONFIGURE POM DATA FOR GRAPHS
     $scope.selectedGraphData = graph;
+    
+    //FOLLOW NEW USER FUNCTION
+    $scope.followUser = function() {
+        userService.followUser($stateParams.user)
+        
+    }
     
     
     $scope.getAll();
