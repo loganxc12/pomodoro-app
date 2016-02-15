@@ -118,14 +118,16 @@
                 </div>
             </div>
         </div>
+<!--
         <div class='ten-day-header'>
             <h3 ng-show="tenHeader">Last 10 Days</h3>
             <h3 ng-show="thirtyHeader">Last 30 Days</h3>
         </div>
+-->
         <pom-graph num-days = "numDays" data="graphData"></pom-graph>
         <div class="stats-footer">
-            <a ng-show="thirtyView" class="follow-btn" href='' ng-click= "toggle30(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i> 30 Day View</a>
-            <a ng-show="tenView" class="follow-btn" href='' ng-click= "toggle10(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i>
+            <a ng-show="thirtyView" class="toggle-btn" href='' ng-click= "toggle30(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i> 30 Day View</a>
+            <a ng-show="tenView" class="toggle-btn" href='' ng-click= "toggle10(); toggleViewBtns(); toggleViewLabels()"><i class="fa fa-toggle-on"></i>
  10 Day View</a>
         </div>
 <!--
@@ -190,7 +192,8 @@
     
 </div>
 
-
+<footer class="main-footer">
+</footer>
 
 
 

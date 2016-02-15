@@ -38,12 +38,12 @@ html, body {
     height: 100%;
     width: 100px;
     right: 0;
-    top: 1px;
+    top: 2px;
     color: white;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 #userSearch {
@@ -93,7 +93,7 @@ html, body {
 .hero {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(255,255,255, 0.85), rgba(255,255,255, 0.85)), url('../Images/pom2.jpg');
+    background-image: linear-gradient(rgba(32, 41, 52, 0.75), rgba(32, 41, 52, 1)), url('https://static.pexels.com/photos/6548/cold-snow-winter-mountain.jpeg');
 /*    background-color: #fff;*/
 /*    background-color: #29AF91;*/
     background-size: cover;
@@ -104,7 +104,7 @@ html, body {
 
 .title {
     margin: auto;
-    color: #2f363e;
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
@@ -115,18 +115,18 @@ html, body {
 }
 
 .title h2 {
-    font-size: 2.5em;
+    font-size: 3.2em;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
     margin-bottom: 0;
 }
 
 .title p {
     font-family: 'Open Sans', serif;
-    font-size: 20px;
-    font-size: 400;
-    line-height: 28px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 26px;
     letter-spacing: 0.05em;
 }
 
@@ -150,13 +150,187 @@ html, body {
     padding: 14px 18px;
     margin-right: 10px;
     background-color: #37b650;
-    border: 2px solid #29863b;
 }
 
 .title a:first-child {
     background-color: #EF4B50;
-    border: 2px solid #b43337;
 }
+
+.title a:hover {
+    cursor: pointer;
+}
+}
+    
+
+
+.main-footer {
+    width: 100%;
+    height: 30px;
+    background-color: #202934;
+    z-index: 100000;
+    display: flex;
+}
+
+.main-footer img {
+    width: 100px;
+    height: 45px;
+    margin: auto;
+    margin-right: 800px;
+    opacity: 0.6;
+}
+
+.icon-description {
+    width: 100%;
+    height: 330px;
+    color: #202934;
+    display: flex;
+}
+
+.icon-description h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.icon-description p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.timer-box {
+    height: 100%;
+    flex: 1;
+    display: flex;
+}
+
+.timer-icon {
+    margin: auto;
+    text-align: center;
+    font-size: 5em;
+    width: 70%;
+}
+
+.graph-box {
+    height: 100%;
+    flex: 1;
+    display: flex;
+}
+
+.graph-icon {
+    margin: auto;
+    text-align: center;
+    font-size: 5em;
+    width: 70%;
+}
+
+.user-box {
+    height: 100%;
+    flex: 1;
+    display: flex;
+}
+
+.user-icon {
+    margin: auto;
+    text-align: center;
+    font-size: 5em;
+    width: 70%;
+}
+
+.info-banner {
+    width: 100%;
+    height: 850px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.info-banner h2 {
+    margin-top: 50px;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 2.35em;
+    letter-spacing: 0.05em;
+    color: #202934;
+}
+
+.info-banner img {
+    margin: 0 auto;
+    margin-top: -100px;
+    max-width: 800px;
+    max-height: 478px;
+}
+
+.how-it-works {
+    width: 500px;
+    height: 150px;
+    margin: 30px auto;
+    display: flex;
+    background-image: url('../Images/discover.png');
+}
+
+.how-it-works h2 {
+    margin: auto;
+}
+
+.info-banner p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-top: 0px;
+    color: #42546a;
+}
+
+.info-banner a {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: white;
+    width: 150px;
+    text-decoration: none;
+    padding: 14px 18px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: #37b650;
+    
+}
+
+
+.home-pre-footer {
+    width: 100%;
+    height: 200px;
+    background-image: url('../Images/footer-mtns.jpg');
+    background-position: center;
+    margin-top: -20px;
+}
+
+.home-footer {
+    width: 100%;
+    height: 75px;
+    background-color: #202934;
+    display: flex;
+}
+
+.home-footer p, .home-footer a {
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    margin: auto;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.home-footer a {
+    cursor: pointer;
+}
+
+
+
+
 
 /**SIGN UP PAGE**/
 
@@ -494,7 +668,7 @@ html, body {
     display: flex;
     margin: 0 auto;
     margin-top: 55px;
-    margin-bottom: 45px;
+    margin-bottom: 5px;
 }
 
 .stats-banner h1 {
@@ -523,13 +697,13 @@ html, body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    border-right: 2px solid #e5e5e5;
+    border-right: 1px solid #E0E4EF;
 }
 
 .weekly-stats {
     flex: 1;
     display: flex;
-    border-right: 2px solid #e5e5e5;
+    border-right: 1px solid #E0E4EF;
 }
 
 .monthly-stats {
@@ -684,6 +858,7 @@ canvas {
     background: #E0E4EF;
     height: 100%; 
     position: fixed;
+    z-index: 100;
 }
 
 .following-label {
@@ -731,7 +906,7 @@ canvas {
 
 .progress {
     width: 100px;
-    height: 7px;
+    height: 6px;
     background-color: #37b650;
     border-radius: 10%;
     display: flex;
@@ -748,7 +923,7 @@ canvas {
 
 .progress2 {
     width: 34px;
-    height: 7px;
+    height: 6px;
     background-color: #37b650;
     border-radius: 10%;
     display: block;
@@ -759,7 +934,7 @@ canvas {
 
 .progress3 {
     width: 70px;
-    height: 7px;
+    height: 6px;
     background-color: #37b650;
     border-radius: 10%;
     display: block;
@@ -1008,14 +1183,16 @@ input[type="file"] {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    font-size: 15px;
     text-align: center;
     color: white;
     text-decoration: none;
-    padding: 10px 18px;
+    padding: 9px 18px;
     margin-right: 10px;
-    background-color: #37b650;
-    border: 2px solid #29863b;
+    background-color: #3787BF;
+    border: 2px solid #206293;
     margin: 0 auto;
+    margin-top: 7px;
 }
 
 .fade {
@@ -1108,13 +1285,26 @@ input[type="file"] {
     font-weight: 400;
     letter-spacing: 0.05em;
     color: #fff;
-    border-radius: 4%;
     padding: 7px 14px;
     margin: auto;
 }
 
 .follow-btn:last-child {
     background-color: #EF4B50;
+}
+
+.toggle-btn {
+    background-color: #3787BF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #fff;
+    padding: 7px 14px;
+    margin: auto;
+    border: 2px solid #206293;
 }
 
 /*
@@ -1186,7 +1376,7 @@ input[type="file"] {
 
 .stats-footer {
     width: 100%;
-    height: 80px;
+    height: 115px;
     margin-top: 0;
     display: flex;
 }
@@ -1194,9 +1384,8 @@ input[type="file"] {
 .stats-footer a {
     margin: auto;
     margin-top: 0px;
-    padding: 12px 15px;
-    background-color: #EF4B50;
-    font-size: 15px;
+    padding: 9px 15px;
+    font-size: 14px;
 }
 
 /* , url('https://static.pexels.com/photos/15217/pexels-photo.jpg');*/

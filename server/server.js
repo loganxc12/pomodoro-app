@@ -67,6 +67,7 @@ app.put('/users', userController.update);
 app.put('/usercover', userController.updateCover);
 app.put('/userprofile', userController.updateProfile);
 app.put('/follow', userController.addToFollowing);
+app.get('/followingList/:user', userController.getFollowing);
 app.get('/users', userController.refresh);
 app.get('/usersList', userController.getAllUsers);
 app.get('/userx/:user', userController.getOne);

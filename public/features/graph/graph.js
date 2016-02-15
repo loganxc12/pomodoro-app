@@ -35,7 +35,7 @@ app.directive('pomGraph', function() {
                     data: graphData
                 }]
                 }
-                curChart = new Chart(ctx).Bar(data, options, {
+                curChart = new Chart(ctx).Line(data, options, {
                     showScale: false,
             });
             }
@@ -50,7 +50,7 @@ app.directive('pomGraph', function() {
                 //String - Colour of the grid lines
                 scaleGridLineColor : "rgba(0,0,0,0.0)",
 
-                scaleLineColor: 'transparent',
+                scaleLineColor: '#E0E4EF',
 
                 //Number - Width of the grid lines
                 scaleGridLineWidth : 1,

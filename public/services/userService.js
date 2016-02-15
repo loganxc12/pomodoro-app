@@ -64,21 +64,33 @@ app.service('userService', function($http) {
     }
     
     this.followUser = function(userToFollow) {
-        self.getOne(userToFollow)
-            .then(function(result) {
-                var userObj = result.data;
-                return $http.put('/follow', {user: userObj} )
-            }, function(err) {
-                console.log(err);
-        })
-        
+            return $http.put('/follow', {user: userToFollow})
+                .then(function(result) {
+                    return result;
+                }, function(err) {
+                    console.log(err);
+                })
+    }
+    
+//            return self.getOne(userToFollow)
+//            .then(function(result) {
+//                console.log(result.data._id);
+//                var userId = result.data._id;
+    
+    
+    
+})
+//END SERVICE   
+
+
+
+
 //        return $http.put('/follow', {user: userObj})
 //            .then(function(result) {
 //                return result;
 //            }, function(err) {
 //                console.log(err);
 //        })
-    }
     
     
 //    this.getSelectedUser = function(user) {
@@ -90,7 +102,6 @@ app.service('userService', function($http) {
 //        })
 //    } 
     
-})
 
 /*method: 'POST',
             url: '/uploadImage',

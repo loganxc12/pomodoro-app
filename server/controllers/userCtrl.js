@@ -88,13 +88,17 @@ module.exports = {
     },
     
     addToFollowing: function (req, res) {
-        User.findByIdAndUpdate(req.user._id, {$push: {following: req.body.user}}, {new: true}, function(err, result) {
+        User.findByIdAndUpdate(req.user._id, {$addToSet: {following: req.body.user}}, {new: true}, function(err, result) {
             if (err) {
                 res.json(err);
             } else {
                 res.json(result);
             }
         })
+    },
+    
+    getFollowing: function (req, res) {
+        User.find
     }
     
 }

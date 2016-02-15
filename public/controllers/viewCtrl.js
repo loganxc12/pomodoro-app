@@ -331,6 +331,22 @@ app.controller('viewCtrl', function($scope, $state, $stateParams, pomodoroServic
     //FOLLOW NEW USER FUNCTION
     $scope.followUser = function() {
         userService.followUser($stateParams.user)
+            .then(function(result) {
+                $scope.following = result.data.following;
+                console.log($scope.following);
+                $scope.followingArr = [];
+                for (var i = 0;  i < $scope.following.length; i++) {
+                    console.log('inside loop!');
+                    userService.getOne($scope.following[i])
+                        .then(function(result) {
+                            console.log(result)
+                            $scope.followingArr.push(result.data);
+                            console.log($scope.followingArr);
+                    })
+                        
+                }
+                console.log($scope.followingArr);         
+        })
         
     }
     

@@ -10,7 +10,7 @@ var userSchema = new mongoose.Schema({
     coverPic: {type: String},
     bio: {type: String},
     backgroundColor: {type: String},
-    following: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    following: [{type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true}],
     followers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 })
 
