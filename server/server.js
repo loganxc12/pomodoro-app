@@ -46,7 +46,7 @@ AWS.config.update({
 var s3 = new AWS.S3();
 
 //CONNECT TO MONGO DATABASE VIA MONGOOSE
-var mongoUri = process.env.MONGO_URI;
+var mongoUri = "mongodb://localhost:27017/pomodoro-app";
 mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
     console.log('Successfully connected to mongodb');
@@ -96,7 +96,7 @@ app.post('/uploadImage', function(req, res) {
     });
 })
 
-var port = process.env.PORT || 3000;
+var port = 3000;
 //START UP SERVER
 app.listen(port, function() {
     console.log('server listening on port 3000');
