@@ -1,8 +1,8 @@
 app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalService, userService, profile) {
-    
+
     angular.ModalService = ModalService;
     console.log('MODAL: ', ModalService);
-    
+
     //JQUERY SIDEBAR NAV
     $scope.numDays = 10;
     $scope.toggle30 = function(){
@@ -11,10 +11,10 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
     $scope.toggle10 = function(){
         $scope.numDays = 10;
     }
-    
-    
+
+
     $scope.graphData = [];
-        
+
         $('.nav-sidebar').scotchPanel({
             containerSelector: 'body', // Make this appear on the entire screen
             direction: 'left', // Make it toggle in from the left
@@ -24,8 +24,8 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
             distanceX: '200px', // Size fo the toggle
             enableEscapeKey: true // Clicking Esc will close the panel
         });
-    
-    
+
+
     //Get Pom Data (FOR TOP NUMBER SECTION)
     $scope.getPoms = function() {
         pomodoroService.getPoms()
@@ -36,10 +36,10 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
                 $scope.bannerMonth = result.month;
         })
     }
-    
+
     //Get Pom Data (FOR BAR GRAPH)
-    
-    
+
+
     $scope.getBarPoms = function() {
         pomodoroService.getBarPoms()
             .then(function(result) {
@@ -58,21 +58,21 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
 //            initGraph();
         })
     }
-    
+
     $scope.getBarPoms();
-    
-    function initGraph(){ 
-        
+
+    function initGraph(){
+
         var tdy = moment().format("MMM D").toUpperCase();
         var ysterdy = moment().subtract(1, 'days').format("MMM D").toUpperCase();
-        var ago2 = moment().subtract(2, 'days').format("MMM D").toUpperCase(); 
-        var ago3 = moment().subtract(3, 'days').format("MMM D").toUpperCase(); 
-        var ago4 = moment().subtract(4, 'days').format("MMM D").toUpperCase(); 
-        var ago5 = moment().subtract(5, 'days').format("MMM D").toUpperCase(); 
-        var ago6 = moment().subtract(6, 'days').format("MMM D").toUpperCase(); 
-        var ago7 = moment().subtract(7, 'days').format("MMM D").toUpperCase(); 
+        var ago2 = moment().subtract(2, 'days').format("MMM D").toUpperCase();
+        var ago3 = moment().subtract(3, 'days').format("MMM D").toUpperCase();
+        var ago4 = moment().subtract(4, 'days').format("MMM D").toUpperCase();
+        var ago5 = moment().subtract(5, 'days').format("MMM D").toUpperCase();
+        var ago6 = moment().subtract(6, 'days').format("MMM D").toUpperCase();
+        var ago7 = moment().subtract(7, 'days').format("MMM D").toUpperCase();
         var ago8 = moment().subtract(8, 'days').format("MMM D").toUpperCase();
-        var ago9 = moment().subtract(9, 'days').format("MMM D").toUpperCase(); 
+        var ago9 = moment().subtract(9, 'days').format("MMM D").toUpperCase();
         var data = {
     labels: [ago9, ago8, ago7, ago6, ago5, ago4, ago3, ago2, "YESTERDAY", "TODAY"],
     datasets: [
@@ -86,7 +86,7 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
         }
     ]
 };
-    
+
     var options = {
     //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
     scaleBeginAtZero : true,
@@ -96,12 +96,12 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
 
     //String - Colour of the grid lines
     scaleGridLineColor : "rgba(0,0,0,0.0)",
-        
+
     scaleLineColor: 'transparent',
 
     //Number - Width of the grid lines
     scaleGridLineWidth : 1,
-        
+
     scaleShowLabels: false,
 
     //Boolean - Whether to show horizontal lines (except X axis)
@@ -126,14 +126,14 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
     legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
 }
-    
+
 //    var ctx = document.getElementById("myChart").getContext("2d");
 //        var myNewChart = new Chart(ctx).Line(data, options, {
 //            showScale: false,
 //        });
-        
+
     }
-    
+
     //TOGGLE DAY VIEW BUTTONS
     $scope.thirtyView = true;
     $scope.tenView = false;
@@ -141,7 +141,7 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
         $scope.thirtyView = !$scope.thirtyView;
         $scope.tenView = !$scope.tenView;
     }
-    
+
     //TOGGLE VIEW LABELS
     $scope.tenHeader = true;
     $scope.thirtyHeader = false;
@@ -149,9 +149,9 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
         $scope.tenHeader = !$scope.tenHeader;
         $scope.thirtyHeader = !$scope.thirtyHeader;
     }
-    
-    //LAUNCH PROFILE MODAL 
-    
+
+    //LAUNCH PROFILE MODAL
+
     $scope.openModal = function(profileInfo) {
         ModalService.showModal({
           templateUrl: '../features/modal/modalView.html',
@@ -165,13 +165,13 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
             $scope.refresh();
           });
         });
-        
+
         window.setTimeout(setupUploadEvent, 1000);
-        
+
     }
-    
-    //REFRESH USER INFO 
-    
+
+    //REFRESH USER INFO
+
     $scope.refresh = function() {
         userService.refreshUser()
             .then(function(result) {
@@ -206,6 +206,8 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
                 } else {
                     $scope.profilePic = "../Images/profy.jpg";
                 }
+                //ADD FOLLOWING ARRAY TO scope
+                  $scope.following = result.data.following;
 //                $scope.profileName = result.data.name;
 //                $scope.profileBio = result.data.bio;
 //                $scope.profileSite = result.data.website;
@@ -213,8 +215,8 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
 //                $scope.profilePic = result.data.profilePic;
         })
     }
-    
-    function setupUploadEvent() { 
+
+    function setupUploadEvent() {
         console.log('Setting up listeners');
         $('.file-upload-button').change(function(event) {
             console.log(event);
@@ -233,18 +235,18 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
                 userService.uploadImage(newFile).then(function(data) {
 //                    $scope.refresh();
                     if (event.currentTarget.id == 'cover-upload') {
-        
+
                         $("#modalCoverPhoto").css("background-image","url('"+ data.data.Location + "')");
                         userService.updateCover(data.data.Location)
                             .then(function(result) {
                                 console.log('END RESULT', result);
                         })
-                        
+
                     } else if (event.currentTarget.id == 'profile-upload') {
                         $("#modalProfilePhoto").css("background-image","url('"+ data.data.Location + "')");
                         userService.updateProfile(data.data.Location)
                             .then(function(result) {
-                                console.log('END RESULT', result);      
+                                console.log('END RESULT', result);
                         })
                     }
                     console.log(event.currentTarget.id);
@@ -257,13 +259,13 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
             fileReader.readAsDataURL(event.target.files[0]);
         });
     }
-     
-    
+
+
     //UPDATE PROFILE INFO
-    
+
 //    $scope.coverPic = { 'url(http://tophdimgs.com/data_images/wallpapers/28/420966-natur.jpg)'
 //    }
-//    
+//
     if (profile.status == 200) {
         console.log('PROFILE IS RUNNING');
         $scope.coverPic = profile.data.coverPic;
@@ -276,7 +278,7 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
         $scope.profileBio = "This is your profile page, click the button in the top right to upload pictures and change this description.";
         $scope.profileSite = "pomify.com";
     }
-    
+
     $scope.getAll = function() {
         userService.getAll()
             .then(function(result) {
@@ -289,9 +291,9 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
                 $scope.allUsers = result.data;
         })
     }
-    
+
     $scope.getSelectedUser = function() {
-        
+
         if ($scope.selectedUser == undefined) {
             console.log('no selected user');
         } else {
@@ -300,10 +302,9 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
             $state.go('view', {user: $scope.selectedId});
         }
     }
-    
+
 
 //     $scope.refresh();
      $scope.getAll();
-    
-})
 
+})

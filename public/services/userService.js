@@ -1,5 +1,5 @@
 app.service('userService', function($http) {
-    
+
     var self = this;
     var user = {};
     this.updateProfileInfo = function(profile) {
@@ -11,30 +11,31 @@ app.service('userService', function($http) {
                 console.log(err);
         })
     }
-    
+
     this.refreshUser = function() {
         return $http.get('/users')
             .then(function(result) {
+            console.log(result);
             user = result.data;
                 return result;
             }, function(err) {
                 console.log(err);
         })
     }
-    
+
     this.currentUser = function(){
         return user;
     }
-    
+
     this.uploadImage = function(imageData) {
         return $http.post('/uploadImage', imageData)
 //            .then(function(result) {
 //                console.log(result);
 //            }, function(err) {
 //                console.log(err);
-//        })   
+//        })
     }
-    
+
     this.updateCover = function(filePath) {
         console.log(filePath);
         return $http.put('/usercover', {url: filePath})
@@ -44,7 +45,7 @@ app.service('userService', function($http) {
                 console.log(err);
         })
     }
-    
+
     this.updateProfile = function(filePath) {
         console.log(filePath);
         return $http.put('/userprofile', {url: filePath})
@@ -54,15 +55,15 @@ app.service('userService', function($http) {
                 console.log(err);
         })
     }
-    
+
     this.getAll = function() {
         return $http.get('/usersList')
     }
-    
+
     this.getOne = function(user) {
         return $http.get('/userx/' + user);
     }
-    
+
     this.followUser = function(userToFollow) {
             return $http.put('/follow', {user: userToFollow})
                 .then(function(result) {
@@ -71,16 +72,21 @@ app.service('userService', function($http) {
                     console.log(err);
                 })
     }
-    
-//            return self.getOne(userToFollow)
-//            .then(function(result) {
-//                console.log(result.data._id);
-//                var userId = result.data._id;
-    
-    
-    
+
+    this.unfollowUser = function(userToUnfollow) {
+        return $http.put('/unfollow', {user: userToUnfollow})
+            .then(function(result) {
+                return result;
+            }, function(err) {
+                console.log(err);
+            })
+    }
+
+
+
+
 })
-//END SERVICE   
+//END SERVICE
 
 
 
@@ -91,8 +97,8 @@ app.service('userService', function($http) {
 //            }, function(err) {
 //                console.log(err);
 //        })
-    
-    
+
+
 //    this.getSelectedUser = function(user) {
 //        return $http.get('/userx')
 //            .then(function(result) {
@@ -100,8 +106,8 @@ app.service('userService', function($http) {
 //            }, function(err) {
 //                console.log(err);
 //        })
-//    } 
-    
+//    }
+
 
 /*method: 'POST',
             url: '/uploadImage',

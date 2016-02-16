@@ -1,9 +1,9 @@
 var app = angular.module('pomodoroApp', ['ui.router', 'angularModalService', 'angucomplete']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    
+
     $urlRouterProvider.otherwise('/');
-    
+
     $stateProvider
         .state('home', {
                 url: '/',
@@ -39,6 +39,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'views/view.html',
                 controller: 'viewCtrl',
                 resolve: {
+                    following: function(userService) {
+                      return userService.refreshUser();
+                    },
                     profile: function(userService, $stateParams) {
                         return userService.getOne($stateParams.user);
                     },
@@ -50,11 +53,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     }
                 }
         })
-    
+
 })
 
 //$(document).ready(function() {
-//    
+//
 //    $(function () {
 //    //Create a data object
 //    var data = {
@@ -83,10 +86,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 //    ]
 //};
 //    var option = {};
-//    
+//
 //    //Get the context of the canvas element we want to select
 //    var ctx = document.getElementById("barChart").getContext('2d');
 //    var myLineChart = new Chart(ctx).Line(data, option);
-//        
+//
 //    })
 //});

@@ -14,7 +14,7 @@ html, body {
 .nav {
     width: 100%;
     height: 50px;
-    background-color: #3787BF; 
+    background-color: #3787BF;
     position: fixed;
     display: flex;
     z-index: 1000;
@@ -84,7 +84,7 @@ html, body {
 .nav-links p {
     margin: auto 0;
     margin-top: 14px;
-} 
+}
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -93,7 +93,7 @@ html, body {
 .hero {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(32, 41, 52, 0.75), rgba(32, 41, 52, 1)), url('https://static.pexels.com/photos/6548/cold-snow-winter-mountain.jpeg');
+    background-image: linear-gradient(rgba(32, 41, 52, 0.75), rgba(32, 41, 52, 1)), url('../Images/homepage-mtn.jpg');
 /*    background-color: #fff;*/
 /*    background-color: #29AF91;*/
     background-size: cover;
@@ -147,20 +147,20 @@ html, body {
     text-align: center;
     color: white;
     text-decoration: none;
-    padding: 14px 18px;
+    padding: 15px 50px;
     margin-right: 10px;
     background-color: #37b650;
 }
 
-.title a:first-child {
+/*.title a:first-child {
     background-color: #EF4B50;
-}
+}*/
 
 .title a:hover {
     cursor: pointer;
 }
 }
-    
+
 
 
 .main-footer {
@@ -245,6 +245,7 @@ html, body {
     text-align: center;
     flex-direction: column;
     background-color: #fff;
+    margin-bottom: 80px;
 }
 
 .info-banner h2 {
@@ -293,11 +294,11 @@ html, body {
     color: white;
     width: 150px;
     text-decoration: none;
-    padding: 14px 18px;
+    padding: 15px 50px;
     margin: 0 auto;
     margin-top: 40px;
     background-color: #37b650;
-    
+
 }
 
 
@@ -389,7 +390,7 @@ html, body {
     width: 100%;
     margin: 22px auto;
     text-align: center;
-    
+
 }
 
 .sign-up-btn a {
@@ -856,14 +857,18 @@ canvas {
     top:50px;
     width:200px;
     background: #E0E4EF;
-    height: 100%; 
+    height: 100%;
     position: fixed;
     z-index: 100;
 }
 
+.following-links {
+  text-decoration: none;
+}
+
 .following-label {
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 0.07em;
     color: #8b8f9a;
     width: 100%;
@@ -1062,7 +1067,7 @@ input[type="file"] {
     background-color: #fff;
     color: #232D38;
     height: 20px;
-    
+
 }
 
 .custom-file-upload2 {
@@ -1076,7 +1081,7 @@ input[type="file"] {
     margin-left: 114px;
     background-color: #fff;
     height: 20px;
-    
+
 }
 
 /* ----------------------- */
@@ -1277,7 +1282,7 @@ input[type="file"] {
 }
 
 .follow-btn {
-    background-color: #37b650;
+    background-color: #3787BF;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
@@ -1289,9 +1294,32 @@ input[type="file"] {
     margin: auto;
 }
 
-.follow-btn:last-child {
-    background-color: #EF4B50;
+.following-btn {
+  background-color: #37b650;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #fff;
+  padding: 7px 14px;
+  margin: auto;
 }
+
+.unfollow-btn {
+  background-color: #EF4B50;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #fff;
+  padding: 7px 14px;
+  margin: auto;
+}
+
 
 .toggle-btn {
     background-color: #3787BF;

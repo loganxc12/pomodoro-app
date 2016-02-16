@@ -46,7 +46,7 @@ AWS.config.update({
 var s3 = new AWS.S3();
 
 //CONNECT TO MONGO DATABASE VIA MONGOOSE
-var mongoUri = "mongodb://localhost:27017/pomodoro";
+var mongoUri = process.env.MONGO_URI;
 mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
     console.log('Successfully connected to mongodb');
@@ -67,7 +67,7 @@ app.put('/users', userController.update);
 app.put('/usercover', userController.updateCover);
 app.put('/userprofile', userController.updateProfile);
 app.put('/follow', userController.addToFollowing);
-app.get('/followingList/:user', userController.getFollowing);
+app.put('/unfollow', userController.removeFromFollowing);
 app.get('/users', userController.refresh);
 app.get('/usersList', userController.getAllUsers);
 app.get('/userx/:user', userController.getOne);
@@ -84,7 +84,7 @@ app.post('/uploadImage', function(req, res) {
         ContentType: 'image/' + req.body.fileName.substring(req.body.fileName.lastIndexOf('.')),
         ACL: 'public-read'
     };
-    
+
     s3.upload(params, function(err, data) {
         if(err) {
             console.error(err);
@@ -93,12 +93,12 @@ app.post('/uploadImage', function(req, res) {
             console.log('upload successful');
             return res.json(data);
         }
-    });     
+    });
 })
 
-
+var port = process.env.PORT || 3000;
 //START UP SERVER
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log('server listening on port 3000');
 })
 
@@ -106,10 +106,10 @@ app.listen(3000, function() {
 
 
 
-/* 
+/*
 
 app.use(cookieParser());
-app.use(expressSession({ 
+app.use(expressSession({
     secret: 'cruddy muffins',
     resave: false,
     saveUninitialized: false

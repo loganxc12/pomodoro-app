@@ -1,7 +1,7 @@
 app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
     function($scope, $timeout, pomodoroService) {
-        
-    //Format time 
+
+    //Format time
     $scope.formatTime = function(num) {
         var minutes = Math.floor(num / 60);
         var seconds = num % 60;
@@ -11,12 +11,12 @@ app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
             $scope.prettyCount = minutes + ":" + seconds;
         }
     }
-    
+
     //Coutdown timer//
-    $scope.counter = 5;
+    $scope.counter = 1500;
     $scope.prettyCount = '25' + ":" + '00';
     var stopped;
-        
+
     $scope.countdown = function() {
         stopped = $timeout(function() {
             console.log($scope.counter);
@@ -31,14 +31,14 @@ app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
                 return;
             }
             $scope.formatTime($scope.counter);
-            $scope.countdown();   
+            $scope.countdown();
         }, 1000);
     };
-     
+
     $scope.stopTimer = function(){
         $timeout.cancel(stopped);
-    } 
-    
+    }
+
     //Play/Stop buttons
     $scope.play = true;
     $scope.stop = false;
@@ -46,26 +46,26 @@ app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
         $scope.play = !$scope.play;
         $scope.stop = !$scope.stop;
     }
-    
+
     //Toggle Sidebar
     $scope.sidebar = false;
     $scope.toggleSidebar = function() {
         $scope.sidebar = !$scope.sidebar;
     }
-    
+
     //Color Setting Buttons
     $scope.settingBtns = false;
     $scope.toggleSettings = function() {
         $scope.settingBtns = !$scope.settingBtns;
     }
-    
-    //Add New Pom 
+
+    //Add New Pom
     $scope.addPom = function() {
         pomodoroService.addPom().then(function(result) {
             console.log(result);
         })
     }
-    
+
     //Get Pom Data
     $scope.getPoms = function() {
         pomodoroService.getPoms()
@@ -76,14 +76,14 @@ app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
                 $scope.month = result.month;
         })
     }
-    
+
     $( document ).ready(function() {
         $('#white-btn').click(function() {
             $('.timer-background').css('background-color', 'white');
             $('.timer h1').css('color', '#475159');
             $('.settings i').css('color', '#475159');
         })
-        
+
         $('.nav-sidebar').scotchPanel({
             containerSelector: 'body', // Make this appear on the entire screen
             direction: 'left', // Make it toggle in from the left
@@ -93,10 +93,8 @@ app.controller('dashCtrl', ['$scope','$timeout', 'pomodoroService',
             distanceX: '200px', // Size fo the toggle
             enableEscapeKey: true // Clicking Esc will close the panel
         });
-        
+
     });
 
-    
+
 }]);
-
-

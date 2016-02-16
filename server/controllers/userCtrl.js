@@ -1,7 +1,7 @@
 var User = require('./../models/userModel');
 
 module.exports = {
-    
+
     create: function (req, res) {
         var newUser = new User(req.body);
         newUser.password = newUser.generateHash(newUser.password);
@@ -13,7 +13,7 @@ module.exports = {
             }
         })
     },
-    
+
     read: function (req, res) {
         User.findOne({'email': req.params.email}, function(err, result) {
             if (err) {
@@ -23,7 +23,7 @@ module.exports = {
             }
         })
     },
-    
+
     update: function (req, res) {
         User.findByIdAndUpdate(req.user._id, { name: req.body.name, website: req.body.website, bio: req.body.bio}, {new: true}, function(err, result) {
             if (err) {
@@ -33,9 +33,9 @@ module.exports = {
             }
         })
     },
-    
+
     refresh: function(req, res) {
-        User.findOne({'_id': req.user._id}, function(err, result) {
+        User.findOne({'_id': req.user._id}).populate('following').exec( function(err, result) {
             if (err) {
                res.json(err);
             } else {
@@ -43,7 +43,7 @@ module.exports = {
             }
         })
     },
-    
+
     updateCover: function(req, res) {
         console.log(req.body);
         User.findByIdAndUpdate(req.user._id, { coverPic: req.body.url }, {new: true}, function(err, result) {
@@ -54,7 +54,7 @@ module.exports = {
             }
         })
     },
-    
+
     updateProfile: function(req, res) {
         console.log(req.body);
         User.findByIdAndUpdate(req.user._id, { profilePic: req.body.url }, {new: true}, function(err, result) {
@@ -65,7 +65,7 @@ module.exports = {
             }
         })
     },
-    
+
     getAllUsers: function(req, res) {
         User.find({}, function(err, result) {
             console.log(result);
@@ -75,8 +75,8 @@ module.exports = {
                 res.json(result);
             }
         })
-    }, 
-    
+    },
+
     getOne: function(req, res) {
         User.findOne({'_id': req.params.user}, function(err, result) {
             if (err) {
@@ -86,7 +86,7 @@ module.exports = {
             }
         })
     },
-    
+
     addToFollowing: function (req, res) {
         User.findByIdAndUpdate(req.user._id, {$addToSet: {following: req.body.user}}, {new: true}, function(err, result) {
             if (err) {
@@ -96,9 +96,15 @@ module.exports = {
             }
         })
     },
-    
-    getFollowing: function (req, res) {
-        User.find
-    }
-    
+
+    removeFromFollowing: function (req, res) {
+        User.findByIdAndUpdate(req.user._id, {$pull: {following: req.body.user}}, {new: true}, function(err, result) {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(result);
+            }
+        })
+  }
+
 }

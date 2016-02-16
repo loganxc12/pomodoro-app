@@ -66,7 +66,7 @@
                 <div class="profile-description">
                     <h3>{{selectedName}}</h3>
                     <p>{{selectedBio}}</p>
-                    <p><a href="{{profileSite}}" target="_blank">{{selectedSite}}</a></p>
+                    <p><a href="http://{{selectedSite}}" target="_blank">{{selectedSite}}</a></p>
                 </div>
             </div>
         </div>
@@ -85,8 +85,9 @@
                     <h2>150</h2>
                 </div>
 -->         <div class="profile-btns">
-                <a ng-click="followUser()" class="follow-btn" href=''><i class="fa fa-plus-circle"></i> FOLLOW</a>
-                <a class="follow-btn" href=''><i class="fa fa-envelope"></i> MESSAGE</a>
+                <a ng-if='followBtn' ng-click="followUser(); toggleFollowBtn()" class="follow-btn" href=''><i class="fa fa-plus-circle"></i> FOLLOW</a>
+                <a ng-if='followingBtn' ng-mouseover="toggleFollow()" class="following-btn" href=''><i class="fa fa-check-circle"></i> FOLLOWING</a>
+                <a ng-if='unfollowBtn' ng-click="unfollowUser()" ng-mouseleave="toggleFollow()" class="unfollow-btn" href=''><i class="fa fa-times-circle"></i> UNFOLLOW</a>
             </div>
         </div>
         <div class="stats-banner">
@@ -132,59 +133,25 @@
     </div>
     <div class='right-sidebar'>
 
-<!--
+
         <div class='following-label'>
-            <h3>USERS I FOLLOW</h3>
+            <p>FOLLOWING ({{following.length}})</p>
         </div>
--->
-     
+
+        <a class='following-links' href='/#/view/{{follow._id}}' ng-repeat="follow in following">
         <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xlf1/v/t1.0-9/1929706_10156333716235494_5052873551228195895_n.jpg?oh=944098d855af98f7959a4ea7fec423ab&oe=5728A196'>
-            <h3>Brittany Cooper</h3>
+            <img src={{follow.profilePic}}>
+            <h3>{{follow.name}}</h3>
             <div class="progress"></div>
         </div>
-        <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/v/t1.0-9/10418944_1061086640571034_6841868029591847688_n.jpg?oh=a95dd84a74f3b3454086b30ec5259242&oe=572C4E7C'>
-            <h3>Will Ross</h3>
-            <div class="progress2"></div>
-        </div>
-        <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xap1/v/t1.0-9/1930630_1098827616802445_6657518460504063319_n.jpg?oh=f9e3a2c7dfd17c636c9ed227807473f7&oe=5730CC20'>
-            <h3>Andy Turner</h3>
-            <div class="progress3"></div>
-        </div>
-        <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/t31.0-8/p960x960/1399532_10153079647018305_2872945106891226959_o.jpg'>
-            <h3>Andrew Ernest</h3>
-            <div class="progress"></div>
-        </div>
-        <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xlf1/v/t1.0-9/1929706_10156333716235494_5052873551228195895_n.jpg?oh=944098d855af98f7959a4ea7fec423ab&oe=5728A196'>
-            <h3>Brittany Cooper</h3>
-            <div class="progress2"></div>
-        </div>
-        <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/v/t1.0-9/10418944_1061086640571034_6841868029591847688_n.jpg?oh=a95dd84a74f3b3454086b30ec5259242&oe=572C4E7C'>
-            <h3>Will Ross</h3>
-            <div class="progress3"></div>
-        </div>
-        <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xap1/v/t1.0-9/1930630_1098827616802445_6657518460504063319_n.jpg?oh=f9e3a2c7dfd17c636c9ed227807473f7&oe=5730CC20'>
-            <h3>Andy Turner</h3>
-            <div class="progress"></div>
-        </div>
-        <div class='friend'>
-            <img src='https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/t31.0-8/p960x960/1399532_10153079647018305_2872945106891226959_o.jpg'>
-            <h3>Andrew Ernest</h3>
-            <div class="progress2"></div>
-        </div>
-        
+        </a>
+
     </div>
-    
+
 </div>
 
 <footer class="main-footer">
-        
+
 </footer>
 
 
