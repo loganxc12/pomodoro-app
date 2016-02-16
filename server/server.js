@@ -96,10 +96,10 @@ app.post('/uploadImage', function(req, res) {
     });
 })
 
-var port = 3000;
+var port = (process.env.DEVELOPMENT_MODE=="dev"?3000:80)
 //START UP SERVER
 app.listen(port, function() {
-    console.log('server listening on port 3000');
+    console.log('server listening on port ',port);
 })
 
 
