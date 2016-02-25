@@ -170,6 +170,15 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
 
     }
 
+    //LAUNCH INFO MODAL
+
+    $scope.openInfoModal = function() {
+      ModalService.showModal({
+        templateUrl: '../features/modal/infoModalView.html',
+        controller: 'infoModalCtrl'
+      })
+    }
+
     //REFRESH USER INFO
 
     $scope.refresh = function() {
