@@ -1367,6 +1367,8 @@ input[type="file"] {
 
 .profile-description p {
     font-size: 16px;
+    width: 50%;
+    margin: 15px auto;
     font-weight: 300;
     letter-spacing: 0.07em;
     line-height: 23px;
@@ -1580,6 +1582,9 @@ input[type="file"] {
     max-height: 359px;
     margin-top: -80px
   }
+  .profile-description p {
+    width: 70%;
+  }
 }
 
 @media (max-width: 650px) {
@@ -1616,6 +1621,9 @@ input[type="file"] {
 }
 
 @media (max-width: 500px) {
+  .profile-description p {
+    width: 80%;
+  }
   .nav-links {
     display: none;
   }
