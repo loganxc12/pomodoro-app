@@ -1353,7 +1353,7 @@ input[type="file"] {
     font-family: 'Open Sans', sans-serif;
     margin: 0 auto;
     margin-top: -30px;
-    width: 475px;
+    width: 100%;
     color: #fff;
 }
 
@@ -1549,11 +1549,28 @@ input[type="file"] {
 
 /* MEDIA QUERIES */
 
+@media (max-width: 900px) {
+  .right-sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-right: 0;
+  }
+  .edit-profile {
+    position: absolute;
+    right: 10px;
+    top: 70px;
+  }
+}
+
 @media (max-width: 830px) {
   .desktop-img {
     max-width: 700px;
     max-height: 418px;
     margin-top: -80px
+  }
+  .overlay {
+
   }
 }
 
@@ -1574,6 +1591,9 @@ input[type="file"] {
     height: 274px;
     margin: 0 auto;
   }
+  .edit-profile {
+    display: none;
+  }
 }
 
 @media (max-width: 550px) {
@@ -1590,9 +1610,26 @@ input[type="file"] {
   .info-banner {
     height:410px;
   }
+  .stats-banner span {
+    display: none;
+  }
 }
 
 @media (max-width: 500px) {
+  .nav-links {
+    display: none;
+  }
+  #userSearch {
+    position: absolute;
+    right: 15px;
+    left: inherit;
+  }
+  .search-icon {
+    display: none;
+  }
+  .timer {
+    font-size: 3em;
+  }
   .info-banner br {
     display: none;
   }
@@ -1619,6 +1656,9 @@ input[type="file"] {
 }
 
 @media (max-width: 400px) {
+  .timer {
+    font-size: 2.5em;
+  }
   .title h2 {
     font-size: 2em;
   }
