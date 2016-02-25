@@ -1371,7 +1371,7 @@ input[type="file"] {
     margin: 15px auto;
     font-weight: 300;
     letter-spacing: 0.07em;
-    line-height: 23px;
+    line-height: 25px;
 }
 
 .profile-description a {
@@ -1588,6 +1588,9 @@ input[type="file"] {
 }
 
 @media (max-width: 650px) {
+  .how-it-works {
+    background-size: cover;
+  }
   .desktop-img {
     display: none;
   }
@@ -1598,6 +1601,9 @@ input[type="file"] {
   }
   .edit-profile {
     display: none;
+  }
+  .info-banner {
+    height:410px;
   }
 }
 
@@ -1612,9 +1618,6 @@ input[type="file"] {
   .how-it-works h2 {
     margin: 0 auto;
 }
-  .info-banner {
-    height:410px;
-  }
   .stats-banner span {
     display: none;
   }
