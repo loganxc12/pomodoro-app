@@ -482,6 +482,7 @@ html, body {
     background-color: #2870A6;
     color: white;
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
     height: 50px;
     width: 100%;
     position: absolute;
@@ -989,7 +990,7 @@ canvas {
 .nav-logo {
     position: absolute;
     display: flex;
-    width: 170px;
+    width: 220px;
     height: 100%;
     background-color: #2870A6;
     left: 0
