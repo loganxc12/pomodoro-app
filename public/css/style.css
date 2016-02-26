@@ -270,7 +270,7 @@ html, body {
     text-align: center;
     flex-direction: column;
     background-color: #fff;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .info-banner h2 {
@@ -482,7 +482,8 @@ html, body {
     background-color: #2870A6;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    letter-spacing: 0.12em;
     height: 50px;
     width: 100%;
     position: absolute;
@@ -1001,6 +1002,8 @@ canvas {
     margin-left: 20px;
     color: white;
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.12em;
+    font-size: 1.3em;
 }
 
 .stats-profile-pic {
@@ -1614,7 +1617,7 @@ input[type="file"] {
   margin-bottom: 0px;
   text-align: center;
   width: 85%;
-  margin-top: 75px;
+  margin-top: 50px;
 }
   .how-it-works h2 {
     margin: 0 auto;
@@ -1648,7 +1651,7 @@ input[type="file"] {
   .info-banner p {
     width: 85%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 60px;
     display: block;
   }
   .info-banner h2 {
