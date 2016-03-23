@@ -189,13 +189,13 @@ app.controller('profileCtrl', function($scope, $state, pomodoroService, ModalSer
                 if (result.data.name) {
                     $scope.profileName = result.data.name;
                 } else {
-                    $scope.profileName = "Welcome To PomTracker!";
+                    $scope.profileName = "Welcome To Pomify!";
                 }
                 //CHECK FOR WEBSITE DATA OR SET DEFAULT
                 if (result.data.website) {
                     $scope.profileSite = result.data.website;
                 } else {
-                    $scope.profileSite = "pomtracker.com";
+                    $scope.profileSite = "pomify.net";
                 }
                 //CHECK FOR BIO DATA OR SET DEFAULT
                 if (result.data.bio) {

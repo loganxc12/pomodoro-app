@@ -482,8 +482,8 @@ html, body {
     background-color: #2870A6;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.8em;
-    letter-spacing: 0.12em;
+    font-size: 1.1em;
+    letter-spacing: 0.05em;
     height: 50px;
     width: 100%;
     position: absolute;
@@ -492,7 +492,7 @@ html, body {
 }
 
 .sidebar-logo h2 {
-    margin: auto 0;
+    margin: auto;
     margin-left: 20px;
 }
 
@@ -991,7 +991,7 @@ canvas {
 .nav-logo {
     position: absolute;
     display: flex;
-    width: 220px;
+    width: 180px;
     height: 100%;
     background-color: #2870A6;
     left: 0
@@ -1002,8 +1002,8 @@ canvas {
     margin-left: 20px;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.085em;
-    font-size: 1.36em;
+    letter-spacing: 0.05em;
+    font-size: 1.6em;
 }
 
 .stats-profile-pic {
